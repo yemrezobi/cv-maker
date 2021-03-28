@@ -1,9 +1,10 @@
-function TextEditor(){
+function TextEditor() {
 
-    return(
+    return (
         <div class="edit-text box">
             <p>text editor placeholder</p>
-          </div>
+
+        </div>
     )
 }
 

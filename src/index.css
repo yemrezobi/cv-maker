@@ -97,3 +97,12 @@ body {
     background-color: beige;
     margin-top: 40em;
 }
+
+.split {
+    overflow: visible;
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}

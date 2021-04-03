@@ -6,13 +6,13 @@ import TemplateSelector from './components/TemplateSelector'
 
 function App() {
   return (
-      <div class="container">
-        <div class="side-content">
+      <div className="container">
+        <div className="side-content">
           <SectionEditor/>
           <TextEditor/>
         </div>
         <CVEditor/>
-        <div class="side-content">
+        <div className="side-content">
           <SectionSelector/>
           <TemplateSelector/>
         </div>

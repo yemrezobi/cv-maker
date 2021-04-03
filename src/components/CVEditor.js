@@ -1,7 +1,7 @@
 function CVEditor(){
 
     return(
-        <div class="cv-editor box">
+        <div className="cv-editor box">
           <p>cv editor placeholder</p>
         </div>
     )

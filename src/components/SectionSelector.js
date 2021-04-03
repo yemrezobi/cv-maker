@@ -1,7 +1,7 @@
 function SectionSelector(){
 
     return(
-        <div class="select-section box">
+        <div className="select-section box">
             <p>section selector placeholder</p>
         </div>
     )

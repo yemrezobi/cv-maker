@@ -1,7 +1,7 @@
 function SectionEditor(){
 
     return(
-        <div class="edit-section box">
+        <div className="edit-section box">
             <p>section editor placeholder</p>
         </div>
     )

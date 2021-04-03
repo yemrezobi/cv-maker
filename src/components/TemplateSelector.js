@@ -1,7 +1,7 @@
 function TemplateSelector(){
 
     return(
-        <div class="select-template box">
+        <div className="select-template box">
             <p>template selector placeholder</p>
         </div>
     )

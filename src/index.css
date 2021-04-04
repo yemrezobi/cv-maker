@@ -61,11 +61,7 @@ body {
 
 
 .sectionselected{
-    min-height: 400px;
-    position: absolute;
-    bottom: 0em;
-    min-width: 620px;
-    background-color: beige;
+    text-align: left;
 }
 .sectionAdd {
 	box-shadow:inset 0px 0px 0px 0px #97c4fe;
@@ -105,4 +101,16 @@ body {
     border-top: medium double #333;
     color: #333;
     text-align: center;
+}
+
+
+
+h4{
+    margin-left: 30px;
+}
+.Date{
+    max-width: 75px;
+}
+#Description{
+  min-height: 50px;
 }

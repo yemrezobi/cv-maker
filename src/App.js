@@ -5,19 +5,19 @@ import SectionSelector from './components/SectionSelector'
 import TemplateSelector from './components/TemplateSelector'
 
 function App() {
-  return (
-      <div className="container">
-        <div className="side-content">
-          <SectionEditor/>
-          <TextEditor/>
+    return (
+        <div className="container">
+            <div className="side-content">
+                <SectionEditor/>
+                <TextEditor/>
+            </div>
+            <CVEditor/>
+            <div className="side-content">
+                <SectionSelector/>
+                <TemplateSelector/>
+            </div>
         </div>
-        <CVEditor/>
-        <div className="side-content">
-          <SectionSelector/>
-          <TemplateSelector/>
-        </div>
-      </div>
-  );
+    );
 }
 
 export default App;

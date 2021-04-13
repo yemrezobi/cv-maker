@@ -56,8 +56,17 @@ body > div {
 
 .select-section {
     height: 45%;
+    text-align: left;
 }
 
 .select-template {
     height: 50%;
+}
+
+.section {
+    height: 50px;
+    border: 1px solid grey;
+    background-color: aquamarine;
+    box-sizing: border-box;
+    margin: 0;
 }

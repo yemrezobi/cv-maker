@@ -1,10 +1,13 @@
-function CVEditor(){
+import { useSelector } from "react-redux";
+
+function CVEditor(props){
+    const sections = useSelector(state => state.sections);
 
     return(
         <div className="cv-editor box">
-          <p>cv editor placeholder</p>
+            {sections}
         </div>
-    )
+    );
 }
 
 export default CVEditor

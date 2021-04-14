@@ -44,6 +44,7 @@ body > div {
     min-height: 891px;
     min-width: 630px;
     margin: 5px 0 10px;
+    text-align: left;
 }
 
 .edit-section {
@@ -64,9 +65,14 @@ body > div {
 }
 
 .section {
-    height: 50px;
+    position: relative;
+    height: 100px;
+    width: 100px;
     border: 1px solid grey;
     background-color: aquamarine;
     box-sizing: border-box;
     margin: 0;
+    white-space: normal;
+    display: inline-block;
+    text-align: center;
 }

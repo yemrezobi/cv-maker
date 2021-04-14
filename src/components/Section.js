@@ -12,7 +12,7 @@ function Section(props){
 
     return(
         <div className="section">
-            <span>section {props.id}</span>
+            <h4>Section {props.id}</h4>
             <button onClick={handleClick}>
                 Remove Me
             </button>

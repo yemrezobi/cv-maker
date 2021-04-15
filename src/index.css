@@ -64,7 +64,6 @@ body > div {
 }
 
 .section {
-    height: 50px;
     border: 1px solid grey;
     background-color: aquamarine;
     box-sizing: border-box;

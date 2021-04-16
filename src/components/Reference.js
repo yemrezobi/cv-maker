@@ -18,27 +18,27 @@ function Reference(props) {
     return (
         <div className="section">
             <span>section {props.id}</span>
-            <div class="sectionselected">
+            <div className="sectionselected">
                 <form action={"AddReference"}>
                     <h4>Add New Refrence</h4>
                     <ul>
                         <li>
-                            <label for="name">Name : </label><br />
+                            <label htmlFor="name">Name : </label><br />
                             <input type="text" name="name" id="" />
                         </li>
                         <br />
                         <li>
-                            <label for="Lname">Last Name : </label><br />
+                            <label htmlFor="Lname">Last Name : </label><br />
                             <input type="text" name="Lname" id="" />
                         </li>
                         <br />
                         <li>
-                            <label for="phone">Phone : </label><br />
+                            <label htmlFor="phone">Phone : </label><br />
                             <input type="text" className="phone" name="phone" placeholder="555555 5555" id="phone" />
                         </li>
                         <br />
                         <li>
-                            <label for="email">Email : </label><br />
+                            <label htmlFor="email">Email : </label><br />
                             <input type="email" name="email" id="" />
                         </li>
                     </ul>

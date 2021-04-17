@@ -68,4 +68,14 @@ body > div {
     background-color: aquamarine;
     box-sizing: border-box;
     margin: 0;
+    
+}
+
+
+
+.Date{
+    max-width: 75px;
+} 
+ul {
+    list-style-type: none;
 }

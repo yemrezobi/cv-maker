@@ -16,21 +16,21 @@ function SectionSelector(props) {
     const add_education = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Section key={count} id={count} />
+            section: <Section key={"e" + count} id={"e" + count} />
         });
         setCount(count + 1);
     }
     const add_reference = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Reference key={ref_count} id={ref_count} />
+            section: <Reference key={"r" + ref_count} id={"r" + ref_count} />
         });
         setRefCount(ref_count + 1);
     }
     const add_experience = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Experience key={experience_count} id={experience_count} />
+            section: <Experience key={"x" + experience_count} id={"x" + experience_count} />
         });
         setExperienceCount(experience_count + 1);
     }

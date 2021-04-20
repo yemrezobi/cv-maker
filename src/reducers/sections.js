@@ -4,6 +4,7 @@ const sections = (state = [], action) => {
             return [...state, action.section];
         case "REMOVE_SECTION":
             return state.filter(section => section.props.id !== action.id);
+
         default:
             return state;
     }

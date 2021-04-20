@@ -1,11 +1,7 @@
 import { useDispatch } from "react-redux";
 
+function ExperienceSection(props) {
 
-/*const normalizePhoneNumber = (value) => {
-    return value.replace(/\s/g, "").replace(/s/g, "").match(/.{1,6}/g)?.join(" ").substr(0, 11) || ""
-}
-*/
-function Experience(props) {
     const dispatch = useDispatch();
 
     const remove_experience = (e) => {
@@ -15,8 +11,11 @@ function Experience(props) {
         });
     }
 
+
+
     return (
         <div className="section">
+
             <span>section {props.id}</span>
             <div className="sectionselected">
                 <form action={"AddReference"}>
@@ -52,11 +51,14 @@ function Experience(props) {
                 </form>
                 <hr className="split" />
             </div>
+
             <button onClick={remove_experience}>
                 Remove Me
             </button>
+
+
         </div>
     )
 }
 
-export default Experience;
+export default ExperienceSection;

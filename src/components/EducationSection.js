@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-function Section(props) {
+function EducationSection(props) {
     const dispatch = useDispatch();
 
     const remove_education = (e) => {
@@ -62,4 +62,4 @@ function Section(props) {
     )
 }
 
-export default Section;
+export default EducationSection;

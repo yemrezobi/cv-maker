@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
     return value.replace(/\s/g, "").replace(/s/g, "").match(/.{1,6}/g)?.join(" ").substr(0, 11) || ""
 }
 */
-function Reference(props) {
+function ReferenceSection(props) {
 
     const dispatch = useDispatch();
 
@@ -53,4 +53,4 @@ function Reference(props) {
     )
 }
 
-export default Reference;
+export default ReferenceSection;

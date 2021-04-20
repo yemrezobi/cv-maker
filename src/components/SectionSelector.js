@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import Section from "./Section"
-import Reference from "./Reference"
-import Experience from "./Experience"
+import EducationSection from "./EducationSection"
+import ReferenceSection from "./ReferenceSection"
+import ExperienceSection from "./ExperienceSection"
+import SkillsGroupSection from "./SkillsGroupSection"
 
 
 
@@ -10,32 +11,41 @@ function SectionSelector(props) {
     const [count, setCount] = useState(0);
     const [ref_count, setRefCount] = useState(0);
     const [experience_count, setExperienceCount] = useState(0);
+    const [skills_group_count, setSkillGroupsCount] = useState(0);
 
     const dispatch = useDispatch();
 
     const add_education = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Section key={"e" + count} id={"e" + count} />
+            section: <EducationSection key={"e" + count} id={"e" + count} />
         });
         setCount(count + 1);
     }
     const add_reference = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Reference key={"r" + ref_count} id={"r" + ref_count} />
+            section: <ReferenceSection key={"r" + ref_count} id={"r" + ref_count} />
         });
         setRefCount(ref_count + 1);
     }
     const add_experience = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Experience key={"x" + experience_count} id={"x" + experience_count} />
+            section: <ExperienceSection key={"x" + experience_count} id={"x" + experience_count} />
         });
         setExperienceCount(experience_count + 1);
     }
+    const add_skills_group = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <SkillsGroupSection key={"g" + skills_group_count} id={"g" + skills_group_count} />
+        });
+        setSkillGroupsCount(skills_group_count + 1);
+    }
     return (
         <div className="select-section box">
+
             <button onClick={add_education}>
                 Add new education
             </button>
@@ -45,7 +55,13 @@ function SectionSelector(props) {
             <button onClick={add_experience}>
                 Add new Experience
             </button>
+            <br />
+            <button onClick={add_skills_group}>
+                Add new Skills Group
+            </button>
+
         </div>
+
     );
 }
 

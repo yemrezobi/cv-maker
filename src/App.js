@@ -8,13 +8,13 @@ function App() {
     return (
         <div className="container">
             <div className="side-content">
-                <SectionEditor/>
-                <TextEditor/>
+                <SectionEditor />
+                <TextEditor />
             </div>
-            <CVEditor/>
+            <CVEditor />
             <div className="side-content">
-                <SectionSelector/>
-                <TemplateSelector/>
+                <SectionSelector />
+                <TemplateSelector />
             </div>
         </div>
     );

@@ -1,3 +1,100 @@
+import ReactStars from "react-star-rating-component";
+import _uniqueId from 'lodash/uniqueId';
+
+
+import React, { useState } from "react";
+
+function NewId() {
+    const [count] = useState(_uniqueId('prefix-'));
+    return count
+}
+
+function App() {
+    const [inputList, setInputList] = useState([{ firstName: "", rating: 0 }]);
+
+    // handle input change
+    const handleInputChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...inputList];
+        list[index][name] = value;
+        setInputList(list);
+    };
+
+    // handle click event of the Remove button
+    const handleRemoveClick = index => {
+        const list = [...inputList];
+        list.splice(index, 1);
+        setInputList(list);
+    };
+
+    // handle click event of the Add button
+    const handleAddClick = () => {
+        setInputList([...inputList, { firstName: "", rating: 0 }]);
+
+    };
+
+    const [count] = useState(_uniqueId('prefix-'));
+
+
+    return (
+        <div className="App">
+            {inputList.map((x, i) => {
+                return (
+                    <div className="skill">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input
+                                        name="firstName"
+                                        placeholder="Enter First Name"
+                                        value={x.firstName}
+                                        onChange={e => handleInputChange(e, i)}
+                                    />
+                                </td>
+                                <td>
+                                    <form name="rating">
+                                        <div class="stars">
+                                            <input type="radio" name={"star_a_" + i} class="star-1" id={"star_a_" + i} />
+                                            <label class="star-1" for={"star_a_" + i}>1</label>
+                                            <input type="radio" name={"star_b_" + i} class="star-2" id={"star_b_" + i} />
+                                            <label class="star-2" for={"star_b_" + i}>2</label>
+                                            <input type="radio" name={"star_c_" + i} class="star-3" id={"star_c_" + i} />
+                                            <label class="star-3" for={"star_c_" + i}>3</label>
+                                            <input type="radio" name={"star_d_" + i} class="star-4" id={"star_d_" + i} />
+                                            <label class="star-4" for={"star_d_" + i}>4</label>
+                                            <input type="radio" name={"star_e_" + i} class="star-5" id={"star_e_" + i} />
+                                            <label class="star-5" for={"star_e_" + i}>5</label>
+                                            <span></span>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+                        <div className="btn-box">
+                            {inputList.length !== 1 && <button
+                                className="mr10"
+                                onClick={() => handleRemoveClick(i)}>Remove</button>}
+                            {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                        </div>
+
+
+                    </div>
+                );
+            })}
+        </div>
+    );
+}
+
+export default App;
+
+
+
+
+
+
 /*import { useDispatch } from "react-redux";
 import React from "react"
 
@@ -72,7 +169,7 @@ function Skill(props) {
 
     return (
         <div className="section skill">
-            <div className="sectionselected">
+            <tr className="sectionselected">
                 <td>
                     <input type="text" placeholder="skill1" />
                 </td>
@@ -91,7 +188,7 @@ function Skill(props) {
                         })}
                     </div>
                 </td>
-            </div>
+            </tr>
             <button onClick={remove_skill}>
                 Remove Me
             </button>
@@ -100,4 +197,5 @@ function Skill(props) {
     )
 }
 
-export default Skill;*/
+export default Skill;
+*/

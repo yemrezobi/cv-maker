@@ -46,6 +46,43 @@ function SkillsGroupSection(props) {
                         <input type="text" placeholder="skill1" />
                     </td>
                     <td>
+                        <input id="typeinp" type="range" min="0" max="100" defaultValue="50" step="25" />
+                    </td>
+                </tr>
+
+
+
+            </table>
+
+            <button onClick={remove_skills_group}>
+                Remove Me
+            </button>
+
+
+        </div>
+    )
+}
+
+
+/*
+
+<tr>
+                    <td>
+                        <button onClick={add_skill}>
+                            add skill
+                        </button>
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+
+
+<td>
                         <form name="rating">
                             <div class="stars">
                                 <input type="radio" name={"star_a1" + id} class="star-1" id={"star_a1" + id} />
@@ -128,30 +165,30 @@ function SkillsGroupSection(props) {
                             </div>
                         </form>
                     </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <button onClick={add_skill}>
-                            add skill
-                        </button>
-                    </td>
-                </tr>
 
 
-            </table>
-
-            <button onClick={remove_skills_group}>
-                Remove Me
-            </button>
 
 
-        </div>
-    )
-}
 
 
-/*<form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form>
                             <div class="stars">
                                 <input type="radio" name={"star_a_" + count} class="star-1" id={"star_a_" + count} />
                                 <label class="star-1" for={"star_a_" + count}>1</label>

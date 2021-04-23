@@ -4,7 +4,7 @@ import EducationSection from "./EducationSection"
 import ReferenceSection from "./ReferenceSection"
 import ExperienceSection from "./ExperienceSection"
 import SkillsGroupSection from "./SkillsGroupSection"
-
+import Skill from "./Skill"
 
 
 function SectionSelector(props) {
@@ -39,7 +39,7 @@ function SectionSelector(props) {
     const add_skills_group = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <SkillsGroupSection key={"g" + skills_group_count} id={"g" + skills_group_count} />
+            section: <Skill key={"g" + skills_group_count} id={"g" + skills_group_count} />
         });
         setSkillGroupsCount(skills_group_count + 1);
     }

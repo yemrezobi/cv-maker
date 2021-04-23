@@ -4,13 +4,9 @@ import _uniqueId from 'lodash/uniqueId';
 
 import React, { useState } from "react";
 
-function NewId() {
-    const [count] = useState(_uniqueId('prefix-'));
-    return count
-}
 
 function App() {
-    const [inputList, setInputList] = useState([{ firstName: "", rating: 0 }]);
+    const [inputList, setInputList] = useState([{ firstName: "", rating: "range" }]);
 
     // handle input change
     const handleInputChange = (e, index) => {
@@ -20,6 +16,7 @@ function App() {
         setInputList(list);
     };
 
+
     // handle click event of the Remove button
     const handleRemoveClick = index => {
         const list = [...inputList];
@@ -27,9 +24,10 @@ function App() {
         setInputList(list);
     };
 
+
     // handle click event of the Add button
     const handleAddClick = () => {
-        setInputList([...inputList, { firstName: "", rating: 0 }]);
+        setInputList([...inputList, { firstName: "", rating: "range" }]);
 
     };
 
@@ -37,7 +35,9 @@ function App() {
 
 
     return (
-        <div className="App">
+        <div className="section">
+            <h5 className="section">Skill</h5>
+            <input className="skillsgroup" type="text" placeholder="Entere the name of the skills group" />
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -46,12 +46,52 @@ function App() {
                                 <td>
                                     <input
                                         name="firstName"
-                                        placeholder="Enter First Name"
+                                        placeholder="Enter Skill Name"
                                         value={x.firstName}
                                         onChange={e => handleInputChange(e, i)}
                                     />
                                 </td>
                                 <td>
+                                    <input type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div className="btn-box">
+                            {inputList.length !== 1 && <button
+                                className="mr10"
+                                onClick={() => handleRemoveClick(i)}>Remove</button>}
+                            {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                        </div>
+
+                    </div>
+
+
+                );
+            })}
+        </div>
+    );
+}
+
+export default App;
+
+
+
+
+
+
+/*
+                        <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
+
+
+
+
+
+import { useDispatch } from "react-redux";
+import React from "react"
+
+
+<td>
                                     <form name="rating">
                                         <div class="stars">
                                             <input type="radio" name={"star_a_" + i} class="star-1" id={"star_a_" + i} />
@@ -68,38 +108,6 @@ function App() {
                                         </div>
                                     </form>
                                 </td>
-                            </tr>
-                        </table>
-
-
-
-                        <div className="btn-box">
-                            {inputList.length !== 1 && <button
-                                className="mr10"
-                                onClick={() => handleRemoveClick(i)}>Remove</button>}
-                            {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
-                        </div>
-
-
-                    </div>
-                );
-            })}
-        </div>
-    );
-}
-
-export default App;
-
-
-
-
-
-
-/*import { useDispatch } from "react-redux";
-import React from "react"
-
-
-
 
 
 function StarIcon(props) {

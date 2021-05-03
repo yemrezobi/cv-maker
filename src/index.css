@@ -68,8 +68,6 @@ body > div {
     background-color: aquamarine;
     box-sizing: border-box;
     margin: 0;
-    
-    
 }
 
 
@@ -82,7 +80,5 @@ ul {
 }
 
 .skillsgroup{
-margin-right: 455px;
-margin-top: 10px;
-width: 220px;
+    margin-top: 10px 455px 0px 0px;
 }

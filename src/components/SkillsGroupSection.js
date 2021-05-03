@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+/*import { useDispatch } from "react-redux";
 import React from "react"
 import Skill from "./Skill"
 import { useState } from "react"
@@ -203,10 +203,10 @@ function SkillsGroupSection(props) {
                                 <span></span>
                             </div>
                         </form>
-                        
-                        
-                        
-                        
+
+
+
+
                         <ReactStars className="rating-stars"
                             count={5}
                             onChange={ratingChanged}
@@ -284,6 +284,6 @@ const onSaveRating = (index) => {
                     setRating(index);
 };
 
-*/
 
 export default SkillsGroupSection
+*/

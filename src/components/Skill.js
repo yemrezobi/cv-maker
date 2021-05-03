@@ -1,11 +1,25 @@
 import ReactStars from "react-star-rating-component";
 import _uniqueId from 'lodash/uniqueId';
+import { useDispatch } from "react-redux";
+
 
 
 import React, { useState } from "react";
 
 
-function App() {
+function Skill(props) {
+
+
+    const dispatch = useDispatch();
+
+    const remove_skills = (e) => {
+        dispatch({
+            type: "REMOVE_SECTION",
+            id: props.id
+        });
+    }
+
+
     const [inputList, setInputList] = useState([{ firstName: "", rating: "range" }]);
 
     // handle input change
@@ -69,11 +83,15 @@ function App() {
 
                 );
             })}
+            <br />
+            <button onClick={remove_skills}>
+                Remove group
+            </button>
         </div>
     );
 }
 
-export default App;
+export default Skill;
 
 
 

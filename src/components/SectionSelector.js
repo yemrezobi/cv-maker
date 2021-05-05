@@ -1,15 +1,15 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import Section from "./Section"
+import SectionTest from "./sections/SectionTest";
 
 function SectionSelector(props){
     const [count, setCount] = useState(0);
     const dispatch = useDispatch();
 
-    const handleClick = (e) => {
+    const handleClick = () => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Section key={count} id={count}/>
+            section: <SectionTest key={count} id={count}/>
         });
         setCount(count + 1);
     }

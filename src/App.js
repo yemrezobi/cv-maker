@@ -1,5 +1,5 @@
 import SectionEditor from './components/SectionEditor'
-import TextEditor from './components/TextEditor'
+import StyleEditor from './components/StyleEditor'
 import CVEditor from './components/CVEditor'
 import SectionSelector from './components/SectionSelector'
 import TemplateSelector from './components/TemplateSelector'
@@ -9,7 +9,7 @@ function App() {
         <div className="container">
             <div className="side-content">
                 <SectionEditor/>
-                <TextEditor/>
+                <StyleEditor/>
             </div>
             <CVEditor/>
             <div className="side-content">

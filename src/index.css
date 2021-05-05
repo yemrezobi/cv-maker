@@ -15,17 +15,19 @@ body > div {
 }
 
 .container {
-    width: 100%;
-    height: 100%;
+    width: 99vw;
+    height: 99vh;
     text-align: center;
     white-space: nowrap;
+    background-color: aquamarine;
+    padding: 0.5vh 0.5vw;
 }
 
 .box {
     border: 3px solid black;
     border-radius: 3px;
-    margin: 5px;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .container > div {
@@ -36,27 +38,40 @@ body > div {
 .side-content {
     width: 30%;
     height: 100%;
-    margin: 0 0 10px;
     box-sizing: border-box;
 }
 
 .cv-editor {
-    min-height: 891px;
-    min-width: 630px;
-    margin: 5px 0 10px;
     text-align: left;
+    height: 100%;
+    width: 39%;
+    margin: 0 0.5%;
+    box-sizing: border-box;
+}
+
+.cv-navbar {
+    height: 100%;
+    width: 0%;
+    display: inline-block;
+}
+
+.cv-content {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .edit-section {
-    height: 55%;
+    height: 50%;
 }
 
-.edit-text {
-    height: 40%;
+.edit-style {
+    height: 50%;
 }
 
 .select-section {
-    height: 45%;
+    height: 50%;
     text-align: left;
 }
 
@@ -67,12 +82,11 @@ body > div {
 .section {
     position: relative;
     height: 100px;
-    width: 100px;
+    width: 100%;
     border: 1px solid grey;
-    background-color: aquamarine;
+    background-color: greenyellow;
     box-sizing: border-box;
     margin: 0;
     white-space: normal;
-    display: inline-block;
     text-align: center;
 }

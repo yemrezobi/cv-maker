@@ -12,7 +12,7 @@ function SectionTest(props) {
     }
 
     return(
-        <Section>
+        <Section id={props.id}>
             <h4>Section {props.id}</h4>
             <button onClick={handleClick}>
                 Remove Me

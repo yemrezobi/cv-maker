@@ -14,7 +14,6 @@ function Section(props){
     const dispatch = useDispatch();
 
     const dragStart = (e) => {
-        console.log("drag start");
         setDragged(true);
     }
 
@@ -96,7 +95,6 @@ function Section(props){
     }
 
     const dragEnd = (e) => {
-        console.log("drag end");
         setDragged(false);
     }
 

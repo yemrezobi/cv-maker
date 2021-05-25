@@ -46,7 +46,8 @@ const sections = (state = initialState, action) => {
 
             index = state.mainPanel.findIndex(section=>section.props.id === action.id);
             if(index === -1) {
-                state.sidePanel.findIndex(section=>section.props.id === action.id);
+                // section is in side panel
+                index = state.sidePanel.findIndex(section=>section.props.id === action.id);
                 section = state.sidePanel[index];
                 from = [...state.sidePanel];
                 from.splice(index, 1);
@@ -56,6 +57,7 @@ const sections = (state = initialState, action) => {
                     to = [...state.mainPanel];
                 }
             } else {
+                // section is in main panel
                 section = state.mainPanel[index];
                 from = [...state.mainPanel];
                 from.splice(index, 1);

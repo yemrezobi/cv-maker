@@ -49,17 +49,29 @@ body > div {
     box-sizing: border-box;
 }
 
-.cv-navbar {
+.cv-side-panel {
     height: 100%;
-    width: 0%;
+    width: 30%;
     display: inline-block;
 }
 
-.cv-content {
+.cv-side-panel-right {
+    border-left: 1px solid black;
+}
+
+.cv-side-panel-left {
+    border-right: 1px solid black;
+}
+
+.cv-main-panel {
     height: 100%;
     width: 100%;
     display: inline-block;
     vertical-align: top;
+}
+
+.cv-main-panel-tight {
+    width: 70%;
 }
 
 .edit-section {
@@ -81,7 +93,6 @@ body > div {
 
 .section {
     position: relative;
-    height: 100px;
     width: 100%;
     border: 1px solid grey;
     background-color: greenyellow;
@@ -89,4 +100,8 @@ body > div {
     margin: 0;
     white-space: normal;
     text-align: center;
+}
+
+.dragged {
+    opacity: 0.5;
 }

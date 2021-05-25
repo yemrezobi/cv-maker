@@ -53,7 +53,14 @@ body > div {
     height: 100%;
     width: 30%;
     display: inline-block;
-    background-color: coral;
+}
+
+.cv-side-panel-right {
+    border-left: 1px solid black;
+}
+
+.cv-side-panel-left {
+    border-right: 1px solid black;
 }
 
 .cv-main-panel {

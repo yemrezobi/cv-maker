@@ -26,7 +26,7 @@ function CVEditor(props){
     return(
         <div className="cv-editor box" ref={ref} onDragOver={dragOver}>
             {side === "left" ?
-            <div className="cv-side-panel">
+            <div className="cv-side-panel cv-side-panel-left">
                 {sidePanel}
             </div>
             : null}
@@ -34,7 +34,7 @@ function CVEditor(props){
                 {mainPanel}
             </div>
             {side === "right" ?
-            <div className="cv-side-panel">
+            <div className="cv-side-panel cv-side-panel-right">
                 {sidePanel}
             </div>
             : null}

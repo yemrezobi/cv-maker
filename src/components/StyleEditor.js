@@ -6,7 +6,6 @@ function StyleEditor(){
     const [sectionStyle, setSectionStyle] = useContext(SectionContext);
     const [sectionFont, setSectionFont] = useState(sectionStyle.fontFamily);
     const [sectionBorderStyle, setSectionBorderStyle] = useState(sectionStyle.borderStyle);
-    const [sectionBorderWidth, setSectionBorderWidth] = useState(sectionStyle.borderWidth);
     const [sectionBackgroundColor, setSectionBackgroundColor] = useState(sectionStyle.backgroundColor);
 
     const handleSectionBackgroundColor = (event) => {
@@ -32,15 +31,7 @@ function StyleEditor(){
             borderStyle: event.target.value
         });
     }
-
-    const handleSectionBorderWidth = (event) => {
-        setSectionBorderWidth(event.target.value);
-        setSectionStyle({
-            ...sectionStyle,
-            borderWidth: event.target.value
-        });
-    }
-
+    
     return(
         <div className="edit-style box">
             <div className="edit-style-item">

@@ -52,7 +52,7 @@ describe("sections reducers", () => {
         });
     });
 
-    it("moves a section", () => {
+    it("moves a section from mainpanel to mainpanel", () => {
         expect(reducer({
             ...initialState,
             sections: {
@@ -71,31 +71,60 @@ describe("sections reducers", () => {
                 mainPanel: [createSection(1), createSection(2), createSection(0), createSection(3)]
             }
         });
+    });
 
+    it("moves a section from sidepanel to sidepanel", () => {
         expect(reducer({
             ...initialState,
             sections: {
                 ...initialState.sections,
-                mainPanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
+                sidePanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
             }
         }, {
             type: "MOVE_SECTION",
             id: 0,
-            index: 0,
-            panel: "main"
+            index: 2,
+            panel: "side"
         })).toEqual({
             ...initialState,
             sections: {
                 ...initialState.sections,
-                mainPanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
+                sidePanel: [createSection(1), createSection(2), createSection(0), createSection(3)]
             }
         });
+    });
 
+    it("moves a section from mainpanel to sidepanel", () => {
         expect(reducer({
             ...initialState,
             sections: {
                 ...initialState.sections,
-                mainPanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
+                mainPanel: [createSection(0), createSection(1), createSection(2), createSection(3)],
+                sidePanel: [createSection(4), createSection(5)]
+            }
+        }, {
+            type: "MOVE_SECTION",
+            id: 0,
+            index: 1,
+            panel: "side"
+        })).toEqual({
+            ...initialState,
+            sections: {
+                ...initialState.sections,
+                mainPanel: [createSection(1), createSection(2), createSection(3)],
+                sidePanel: [createSection(4), createSection(0), createSection(5)]
+            }
+        });
+    });
+
+    it("moves a section from sidepanel to mainpanel", () => {
+        expect(reducer({
+            ...initialState,
+            sections: {
+                ...initialState.sections,
+                mainPanel: [createSection(4), createSection(5)],
+                sidePanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
+                
             }
         }, {
             type: "MOVE_SECTION",
@@ -106,26 +135,8 @@ describe("sections reducers", () => {
             ...initialState,
             sections: {
                 ...initialState.sections,
-                mainPanel: [createSection(1), createSection(0), createSection(2), createSection(3)]
-            }
-        });
-
-        expect(reducer({
-            ...initialState,
-            sections: {
-                ...initialState.sections,
-                mainPanel: [createSection(0), createSection(1), createSection(2), createSection(3)]
-            }
-        }, {
-            type: "MOVE_SECTION",
-            id: 1,
-            index: 0,
-            panel: "main"
-        })).toEqual({
-            ...initialState,
-            sections: {
-                ...initialState.sections,
-                mainPanel: [createSection(1), createSection(0), createSection(2), createSection(3)]
+                mainPanel: [createSection(4), createSection(0), createSection(5)],
+                sidePanel: [createSection(1), createSection(2), createSection(3)]
             }
         });
     });

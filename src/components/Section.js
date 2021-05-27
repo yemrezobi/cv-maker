@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
 import { useRef } from "react"
+import { useContext } from "react"
+import { SectionContext } from "../contexts/SectionContext"
 
 function Section(props){
     const ref = useRef();
@@ -12,6 +14,7 @@ function Section(props){
     const mainPanel = useSelector(state => state.sections.mainPanel);
     const sidePanel = useSelector(state => state.sections.sidePanel);
     const dispatch = useDispatch();
+    const [style, ] = useContext(SectionContext);
 
     const dragStart = (e) => {
         setDragged(true);
@@ -108,7 +111,7 @@ function Section(props){
     }, [JSON.stringify(mainPanel)]);
     
     return(
-        <div className={`section ${dragged ? "dragged" : ""}`} ref={ref} draggable="true" onDragStart={dragStart} onDrag={drag} onDragEnd={dragEnd}>
+        <div className={`section ${dragged ? "dragged" : ""}`} style={style} ref={ref} draggable="true" onDragStart={dragStart} onDrag={drag} onDragEnd={dragEnd}>
             {props.children}
         </div>
     );

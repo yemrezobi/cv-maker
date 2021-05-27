@@ -82,6 +82,17 @@ body > div {
     height: 50%;
 }
 
+.edit-style-item {
+    padding-top: 5px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.edit-style-item-text {
+    padding-right: 10px;
+    display: inline-block;
+}
+
 .select-section {
     height: 50%;
     text-align: left;
@@ -94,8 +105,7 @@ body > div {
 .section {
     position: relative;
     width: 100%;
-    border: 1px solid grey;
-    background-color: greenyellow;
+    border-color: grey;
     box-sizing: border-box;
     margin: 0;
     white-space: normal;

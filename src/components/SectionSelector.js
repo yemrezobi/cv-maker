@@ -1,25 +1,23 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
-import EducationSection from "./EducationSection"
-import ReferenceSection from "./ReferenceSection"
-import ExperienceSection from "./ExperienceSection"
-import SkillsGroupSection from "./SkillsGroupSection"
-import Skill from "./Skill"
+import EducationSection from "./sections/EducationSection"
+import ReferenceSection from "./sections/ReferenceSection"
+import ExperienceSection from "./sections/ExperienceSection"
+import SkillsGroupSection from "./sections/SkillsGroupSection"
+import Skill from "./sections/Skill"
 import SectionTest from "./sections/SectionTest"
 
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
-    const [ref_count, setRefCount] = useState(0);
-    const [experience_count, setExperienceCount] = useState(0);
-    const [skills_group_count, setSkillGroupsCount] = useState(0);
-
     const dispatch = useDispatch();
 
-    const add_education = (e) => {
+    const addEducation = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <EducationSection key={"e" + count} id={"e" + count} />
+            section: <EducationSection key={count} id={count} />,
+            panel: "main"
         });
+        setCount(count+1);
     }
 
     const addTest = (e) => {
@@ -30,41 +28,44 @@ function SectionSelector(props) {
         });
         setCount(count+1);
     }
-    const add_reference = (e) => {
+    const addReference = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <ReferenceSection key={"r" + ref_count} id={"r" + ref_count} />
+            section: <ReferenceSection key={count} id={count} />,
+            panel: "main"
         });
-        setRefCount(ref_count + 1);
+        setCount(count+1);
     }
-    const add_experience = (e) => {
+    const addExperience = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <ExperienceSection key={"x" + experience_count} id={"x" + experience_count} />
+            section: <ExperienceSection key={count} id={count} />,
+            panel: "main"
         });
-        setExperienceCount(experience_count + 1);
+        setCount(count+1);
     }
-    const add_skills_group = (e) => {
+    const addSkillsGroup = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Skill key={"g" + skills_group_count} id={"g" + skills_group_count} />
+            section: <Skill key={count} id={count} />,
+            panel: "main"
         });
-        setSkillGroupsCount(skills_group_count + 1);
+        setCount(count+1);
     }
     return (
         <div className="select-section box">
 
-            <button onClick={add_education}>
+            <button onClick={addEducation}>
                 Add new education
             </button>
-            <button onClick={add_reference}>
+            <button onClick={addReference}>
                 Add new reference
             </button>
-            <button onClick={add_experience}>
+            <button onClick={addExperience}>
                 Add new Experience
             </button>
             <br />
-            <button onClick={add_skills_group}>
+            <button onClick={addSkillsGroup}>
                 Add new Skills Group
             </button>
             <button onClick={addTest}>

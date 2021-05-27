@@ -1,10 +1,11 @@
-import ReactStars from "react-star-rating-component";
+/* import ReactStars from "react-star-rating-component"; */
 import _uniqueId from 'lodash/uniqueId';
 import { useDispatch } from "react-redux";
 
 
 
 import React, { useState } from "react";
+import Section from '../Section';
 
 
 function Skill(props) {
@@ -49,9 +50,9 @@ function Skill(props) {
 
 
     return (
-        <div className="section">
+        <Section id={props.id}>
             <h5 className="section">Skill</h5>
-            <input className="skillsgroup" type="text" placeholder="Entere the name of the skills group" />
+            <input className="skillsgroup" type="text" placeholder="Enter the name of the skills group" />
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -87,7 +88,7 @@ function Skill(props) {
             <button onClick={remove_skills}>
                 Remove group
             </button>
-        </div>
+        </Section>
     );
 }
 

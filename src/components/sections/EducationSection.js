@@ -1,36 +1,39 @@
 import { useDispatch } from "react-redux";
+import Section from "../Section";
 
-function ExperienceSection(props) {
-
+function EducationSection(props) {
     const dispatch = useDispatch();
 
-    const remove_experience = (e) => {
+    const handleRemove = (e) => {
         dispatch({
             type: "REMOVE_SECTION",
             id: props.id
         });
     }
 
-
-
     return (
-        <div className="section">
-
-            <span>section {props.id}</span>
+        <Section id={props.id}>
+            <h4>Section {props.id}</h4>
             <div className="sectionselected">
-                <form action={"AddReference"}>
-                    <h4>Add New Experience</h4>
+                <form action={"AddEducation"}>
+                    <h4>Add New Education</h4>
                     <ul>
                         <li id="li_1">
-                            <label className="description" htmlFor="element_1">Company </label>
+                            <label className="description" htmlFor="element_1">Education/course name </label>
                             <div>
-                                <input id="element_1" name="element_1" type="text" maxLength="255" />
+                                <input id="element_1" name="element_1" type="text" maxLength="50" />
                             </div>
                         </li>
                         <li id="li_2">
-                            <label className="description" htmlFor="element_2">Function title </label>
+                            <label className="description" htmlFor="element_2">Organization </label>
                             <div>
-                                <input id="element_2" name="element_2" type="text" maxLength="255" />
+                                <input id="element_2" name="element_2" type="text" maxLength="50" />
+                            </div>
+                        </li>
+                        <li id="li_3">
+                            <label className="description" htmlFor="element_3">City </label>
+                            <div>
+                                <input id="element_3" name="element_3" type="text" maxLength="50" />
                             </div>
                         </li>
                         <li id="li_4">
@@ -51,14 +54,11 @@ function ExperienceSection(props) {
                 </form>
                 <hr className="split" />
             </div>
-
-            <button onClick={remove_experience}>
+            <button onClick={handleRemove}>
                 Remove Me
             </button>
-
-
-        </div>
+        </Section>
     )
 }
 
-export default ExperienceSection;
+export default EducationSection;

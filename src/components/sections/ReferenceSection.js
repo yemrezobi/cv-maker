@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import Section from "../Section";
 
 
 /*const normalizePhoneNumber = (value) => {
@@ -9,7 +10,7 @@ function ReferenceSection(props) {
 
     const dispatch = useDispatch();
 
-    const remove_reference = (e) => {
+    const handleRemove = (e) => {
         dispatch({
             type: "REMOVE_SECTION",
             id: props.id
@@ -17,7 +18,7 @@ function ReferenceSection(props) {
     }
 
     return (
-        <div className="section">
+        <Section id={props.id}>
             <span>section {props.id}</span>
             <div className="sectionselected">
                 <form action={"AddReference"}>
@@ -46,10 +47,10 @@ function ReferenceSection(props) {
                 </form>
                 <hr className="split" />
             </div>
-            <button onClick={remove_reference}>
+            <button onClick={handleRemove}>
                 Remove Me
             </button>
-        </div>
+        </Section>
     )
 }
 

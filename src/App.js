@@ -1,22 +1,25 @@
 import SectionEditor from './components/SectionEditor'
-import TextEditor from './components/TextEditor'
+import StyleEditor from './components/StyleEditor'
 import CVEditor from './components/CVEditor'
 import SectionSelector from './components/SectionSelector'
 import TemplateSelector from './components/TemplateSelector'
+import { SectionProvider } from './contexts/SectionContext'
 
 function App() {
     return (
-        <div className="container">
-            <div className="side-content">
-                <SectionEditor />
-                <TextEditor />
+        <SectionProvider>
+            <div className="container">
+                <div className="side-content">
+                    <SectionEditor/>
+                    <StyleEditor/>
+                </div>
+                <CVEditor/>
+                <div className="side-content">
+                    <SectionSelector/>
+                    <TemplateSelector/>
+                </div>
             </div>
-            <CVEditor />
-            <div className="side-content">
-                <SectionSelector />
-                <TemplateSelector />
-            </div>
-        </div>
+        </SectionProvider>
     );
 }
 

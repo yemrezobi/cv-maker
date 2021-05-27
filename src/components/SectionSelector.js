@@ -5,7 +5,7 @@ import ReferenceSection from "./ReferenceSection"
 import ExperienceSection from "./ExperienceSection"
 import SkillsGroupSection from "./SkillsGroupSection"
 import Skill from "./Skill"
-
+import SectionTest from "./sections/SectionTest"
 
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
@@ -20,7 +20,15 @@ function SectionSelector(props) {
             type: "ADD_SECTION",
             section: <EducationSection key={"e" + count} id={"e" + count} />
         });
-        setCount(count + 1);
+    }
+
+    const addTest = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <SectionTest key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count+1);
     }
     const add_reference = (e) => {
         dispatch({
@@ -58,6 +66,9 @@ function SectionSelector(props) {
             <br />
             <button onClick={add_skills_group}>
                 Add new Skills Group
+            </button>
+            <button onClick={addTest}>
+                Add Test Section
             </button>
 
         </div>

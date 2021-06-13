@@ -1,6 +1,6 @@
 import React from "react";
 const HobbiesList = props => {
-    return props.bookDetails.map((val, idx) => {
+    return props.hobbiesDetails.map((val, idx) => {
         let name = `name-${idx}`;
         return (
             <div className="form-row" key={val.index}>

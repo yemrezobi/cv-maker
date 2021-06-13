@@ -8,7 +8,7 @@ import HobbiesList from "./hobbiesCreate";
 
 class HobbiesView extends React.Component {
     state = {
-        bookDetails: [
+        hobbiesDetails: [
             {
                 index: Math.random(),
                 name: "",
@@ -21,16 +21,16 @@ class HobbiesView extends React.Component {
                 e.target.name
             )
         ) {
-            let bookDetails = [...this.state.bookDetails];
-            bookDetails[e.target.dataset.id][e.target.name] = e.target.value;
+            let hobbiesDetails = [...this.state.hobbiesDetails];
+            hobbiesDetails[e.target.dataset.id][e.target.name] = e.target.value;
         } else {
             this.setState({ [e.target.name]: e.target.value });
         }
     };
     addNewRow = e => {
         this.setState(prevState => ({
-            bookDetails: [
-                ...prevState.bookDetails,
+            hobbiesDetails: [
+                ...prevState.hobbiesDetails,
                 {
                     index: Math.random(),
                     name: "",
@@ -41,7 +41,7 @@ class HobbiesView extends React.Component {
 
     deteteRow = index => {
         this.setState({
-            bookDetails: this.state.bookDetails.filter(
+            hobbiesDetails: this.state.hobbiesDetails.filter(
                 (s, sindex) => index !== sindex
             )
         });
@@ -49,13 +49,13 @@ class HobbiesView extends React.Component {
 
     clickOnDelete(record) {
         this.setState({
-            bookDetails: this.state.bookDetails.filter(r => r !== record)
+            hobbiesDetails: this.state.hobbiesDetails.filter(r => r !== record)
         });
     }
     render() {
-        let { bookDetails } = this.state;
+        let { hobbiesDetails } = this.state;
         return (
-            <div >
+            <Section >
                 <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
                     <div style={{ marginTop: 20 }}>
                         <div />
@@ -66,7 +66,7 @@ class HobbiesView extends React.Component {
                                     <HobbiesList
                                         add={this.addNewRow}
                                         delete={this.clickOnDelete.bind(this)}
-                                        bookDetails={bookDetails}
+                                        hobbiesDetails={hobbiesDetails}
                                     />
                                 </div>
                             </div>
@@ -74,8 +74,8 @@ class HobbiesView extends React.Component {
                         <div />
                     </div>
                 </form>
-
-            </div>
+                <div style={{ marginTop: 20 }}>{JSON.stringify(hobbiesDetails)}</div>
+            </Section>
         );
     }
 }

@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import EducationSection from "./sections/EducationSection"
 import ReferenceSection from "./sections/ReferenceSection"
 import ExperienceSection from "./sections/ExperienceSection"
-import SkillsGroupSection from "./sections/SkillsGroupSection"
 import Skill from "./sections/Skill"
+import HobbiesView from "./sections/HobbiesView"
 import SectionTest from "./sections/SectionTest"
 
 function SectionSelector(props) {
@@ -17,7 +17,7 @@ function SectionSelector(props) {
             section: <EducationSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
 
     const addTest = (e) => {
@@ -26,7 +26,7 @@ function SectionSelector(props) {
             section: <SectionTest key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addReference = (e) => {
         dispatch({
@@ -34,7 +34,7 @@ function SectionSelector(props) {
             section: <ReferenceSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addExperience = (e) => {
         dispatch({
@@ -42,7 +42,7 @@ function SectionSelector(props) {
             section: <ExperienceSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addSkillsGroup = (e) => {
         dispatch({
@@ -50,8 +50,18 @@ function SectionSelector(props) {
             section: <Skill key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
+
+    const addHobbies = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <HobbiesView key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+
     return (
         <div className="select-section box">
 
@@ -70,6 +80,9 @@ function SectionSelector(props) {
             </button>
             <button onClick={addTest}>
                 Add Test Section
+            </button>
+            <button onClick={addHobbies}>
+                Add Hobbies Section
             </button>
 
         </div>

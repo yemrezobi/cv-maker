@@ -4,7 +4,7 @@ import EducationSection from "./sections/EducationSection"
 import ReferenceSection from "./sections/ReferenceSection"
 import ExperienceSection from "./sections/ExperienceSection"
 import Skill from "./sections/Skill"
-import HobbiesView from "./sections/HobbiesView"
+import HobbiesSection from "./sections/HobbiesSection"
 import SectionTest from "./sections/SectionTest"
 
 function SectionSelector(props) {
@@ -56,7 +56,7 @@ function SectionSelector(props) {
     const addHobbies = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <HobbiesView key={count} id={count} />,
+            section: <HobbiesSection key={count} id={count} />,
             panel: "main"
         });
         setCount(count + 1);

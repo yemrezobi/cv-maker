@@ -16,10 +16,9 @@ function ExperienceSection(props) {
 
     return (
         <Section id={props.id}>
-            <span>Section {props.id}</span>
             <div className="sectionselected">
                 <form action={"AddReference"}>
-                    <h4>Add New Experience</h4>
+                    <h4>Experience</h4>
                     <ul>
                         <li id="li_1">
                             <label className="description" htmlFor="element_1">Company </label>

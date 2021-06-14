@@ -13,10 +13,9 @@ function EducationSection(props) {
 
     return (
         <Section id={props.id}>
-            <h4>Section {props.id}</h4>
             <div className="sectionselected">
                 <form action={"AddEducation"}>
-                    <h4>Add New Education</h4>
+                    <h4>Education</h4>
                     <ul>
                         <li id="li_1">
                             <label className="description" htmlFor="element_1">Education/course name </label>

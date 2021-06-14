@@ -19,10 +19,9 @@ function ReferenceSection(props) {
 
     return (
         <Section id={props.id}>
-            <span>section {props.id}</span>
             <div className="sectionselected">
                 <form action={"AddReference"}>
-                    <h4>Add New Refrence</h4>
+                    <h4>Refrence</h4>
                     <ul>
                         <li>
                             <label htmlFor="name">Name : </label><br />

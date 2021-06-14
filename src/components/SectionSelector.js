@@ -6,6 +6,7 @@ import ExperienceSection from "./sections/ExperienceSection"
 import Skill from "./sections/Skill"
 import HobbiesSection from "./sections/HobbiesSection"
 import SectionTest from "./sections/SectionTest"
+import LanguagesSection from "./LanguagesSection"
 
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
@@ -61,10 +62,16 @@ function SectionSelector(props) {
         });
         setCount(count + 1);
     }
-
+    const addLanguages = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <LanguagesSection key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
     return (
         <div className="select-section box">
-
             <table>
                 <tr>
                     <td>
@@ -100,8 +107,14 @@ function SectionSelector(props) {
                         </button>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addLanguages}>
+                            Add Languages Section
+                        </button>
+                    </td>
+                </tr>
             </table>
-
         </div>
 
     );

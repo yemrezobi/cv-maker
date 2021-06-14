@@ -65,25 +65,42 @@ function SectionSelector(props) {
     return (
         <div className="select-section box">
 
-            <button onClick={addEducation}>
-                Add new education
-            </button>
-            <button onClick={addReference}>
-                Add new reference
-            </button>
-            <button onClick={addExperience}>
-                Add new Experience
-            </button>
-            <br />
-            <button onClick={addSkillsGroup}>
-                Add new Skills Group
-            </button>
-            <button onClick={addTest}>
-                Add Test Section
-            </button>
-            <button onClick={addHobbies}>
-                Add Hobbies Section
-            </button>
+            <table>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addEducation}>
+                            Add new education
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addReference}>
+                            Add new reference
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addExperience} >
+                            Add new Experience
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addSkillsGroup}>
+                            Add new Skills Group
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addTest}>
+                            Add Test Section
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addHobbies}>
+                            Add Hobbies Section
+                        </button>
+                    </td>
+                </tr>
+            </table>
 
         </div>
 
@@ -91,3 +108,6 @@ function SectionSelector(props) {
 }
 
 export default SectionSelector
+
+
+

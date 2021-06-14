@@ -42,7 +42,7 @@ function Skill(props) {
 
     // handle click event of the Add button
     const handleAddClick = () => {
-        setInputList([...inputList, { firstName: "", rating: "range" }]);
+        setInputList([...inputList, { firstName: "", rating: "" }]);
 
     };
 
@@ -80,7 +80,6 @@ function Skill(props) {
                         </div>
 
                     </div>
-
 
                 );
             })}

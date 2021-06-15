@@ -17,9 +17,9 @@ function BioSection(props) {
     return (
         <Section id={props.id}>
             <div className="sectionselected">
-                <label className="description" htmlFor="element_5">Bio </label>
+                <label className="description" htmlFor="element_5">Profile </label>
                 <div>
-                    <textarea id="Description" name="element_5" cols="45" rows="5" />
+                    <textarea placeholder="about yourself..." id="Description" name="element_5" cols="45" rows="5" />
                 </div>
                 <hr className="split" />
             </div>

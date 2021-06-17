@@ -84,7 +84,6 @@ function Skill(props) {
             <button onClick={remove_skills}>
                 Remove group
             </button>
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
 
         </Section>
     );

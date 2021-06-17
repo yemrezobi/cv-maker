@@ -83,7 +83,6 @@ function LanguagesSection(props) {
             <button onClick={remove_languages}>
                 Remove languages group
             </button>
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
 
         </Section>
     );
@@ -91,3 +90,4 @@ function LanguagesSection(props) {
 
 export default LanguagesSection;
 
+//<div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>

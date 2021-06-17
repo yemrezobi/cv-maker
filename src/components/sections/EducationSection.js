@@ -101,8 +101,8 @@ function EducationSection(props) {
                                 <div className="btn-box">
                                     {inputList.length !== 1 && <button
                                         className="mr10"
-                                        onClick={() => handleRemoveClick(i)}>Remove Edu</button>}
-                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add Edu</button>}
+                                        onClick={() => handleRemoveClick(i)}>Remove Education</button>}
+                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
                             </li>
@@ -115,11 +115,9 @@ function EducationSection(props) {
             <button onClick={remove_education}>
                 Remove Section
             </button>
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
-
         </Section>
     )
 }
 
 export default EducationSection;
-//
+//<div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>

@@ -84,8 +84,8 @@ function ReferenceSection(props) {
                                 <div className="btn-box">
                                     {inputList.length !== 1 && <button
                                         className="mr10"
-                                        onClick={() => handleRemoveClick(i)}>Remove Edu</button>}
-                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add Edu</button>}
+                                        onClick={() => handleRemoveClick(i)}>Remove Refrence</button>}
+                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
                             </li>
@@ -95,7 +95,7 @@ function ReferenceSection(props) {
                 })}
             </div>
             <button onClick={remove_reference}>
-                Remove Me
+                Remove Section
             </button>
         </Section>
     )

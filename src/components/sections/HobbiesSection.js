@@ -75,9 +75,9 @@ function HobbiesSection(props) {
             <button onClick={remove_hobbies}>
                 Remove group
             </button>
-            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
 
         </Section>
     );
 }
 export default HobbiesSection;
+//            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>

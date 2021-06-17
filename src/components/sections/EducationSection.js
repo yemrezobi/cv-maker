@@ -11,6 +11,7 @@ function EducationSection(props) {
             id: props.id
         });
     }
+
     const [inputList, setInputList] = useState([{ coursetName: "", organisation: "", city: "", yearofstart: "", yearoftheend: "", description: "" }]);
 
     const handleInputChange = (e, index) => {

@@ -8,7 +8,6 @@ import HobbiesSection from "./sections/HobbiesSection"
 import SectionTest from "./sections/SectionTest"
 import LanguagesSection from "./LanguagesSection"
 import BioSection from "./sections/BioSection";
-
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
     const dispatch = useDispatch();
@@ -79,6 +78,7 @@ function SectionSelector(props) {
         });
         setCount(count + 1);
     }
+
     return (
         <div className="select-section box">
             <table>
@@ -127,12 +127,16 @@ function SectionSelector(props) {
                             Add Bio
                         </button>
                     </td>
+                    <td>
+
+                    </td>
                 </tr>
             </table>
         </div>
 
     );
 }
+
 
 export default SectionSelector
 

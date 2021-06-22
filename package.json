@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-drawing": "^1.10.1",
+    "@progress/kendo-react-pdf": "^4.7.0",
+    "@react-pdf/renderer": "^2.0.15",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -17,6 +20,8 @@
     "react-star-rating-component": "^1.4.1",
     "react-star-rating-input": "^8.0.1",
     "react-star-ratings": "^2.3.0",
+    "react-to-pdf": "^0.0.14",
+    "react-to-print": "^2.12.6",
     "redux": "^4.0.5",
     "redux-form": "^8.3.7",
     "web-vitals": "^1.1.1"

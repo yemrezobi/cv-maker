@@ -38,8 +38,7 @@ function HobbiesSection(props) {
     };
     return (
         <Section id={props.id}>
-            <h5 className="section">Skill</h5>
-            <input className="skillsgroup" type="text" placeholder="Enter the name of the skills group" />
+            <h4>Hobbies</h4>
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -47,14 +46,17 @@ function HobbiesSection(props) {
                             <tr>
                                 <td>
                                     <input
+                                        className="field"
                                         name="hobby"
                                         placeholder="Enter hobby Name"
                                         value={x.hobby}
                                         onChange={e => handleInputChange(e, i)}
                                     />
                                 </td>
+                            </tr>
+                            <tr>
                                 <td>
-                                    <div className="btn-box">
+                                    <div className="field">
                                         {inputList.length !== 1 && <button
                                             className="mr10"
                                             onClick={() => handleRemoveClick(i)}>Remove</button>}
@@ -63,12 +65,7 @@ function HobbiesSection(props) {
                                 </td>
                             </tr>
                         </table>
-
-
-
                     </div>
-
-
                 );
             })}
             <br />

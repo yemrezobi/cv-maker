@@ -39,7 +39,7 @@ function EducationSection(props) {
                 <h4>Education</h4>
                 {inputList.map((x, i) => {
                     return (
-                        <ul>
+                        <ul className="section">
                             <li id="li_1">
                                 <label className="description" htmlFor="coursetName">Education/course name </label>
                                 <div>
@@ -96,7 +96,7 @@ function EducationSection(props) {
                                         placeholder="Enter Course description"
                                         value={x.description}
                                         onChange={e => handleInputChange(e, i)}
-                                        id="Description" cols="45" rows="5" />
+                                        id="Description" cols="40" rows="5" />
                                 </div>
                                 <div className="btn-box">
                                     {inputList.length !== 1 && <button

@@ -48,7 +48,7 @@ function LanguagesSection(props) {
 
     return (
         <Section id={props.id}>
-            <h5 className="section">Languages</h5>
+            <h4 >Languages</h4>
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -56,19 +56,23 @@ function LanguagesSection(props) {
                             <tr>
                                 <td>
                                     <input
+                                        className="field"
                                         name="firstName"
                                         placeholder="Enter Language Name"
                                         value={x.firstName}
                                         onChange={e => handleInputChange(e, i)}
                                     />
                                 </td>
+
+                            </tr>
+                            <tr>
                                 <td>
-                                    <input type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
+                                    <input className="field" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
                                 </td>
                             </tr>
                         </table>
 
-                        <div className="btn-box">
+                        <div className="field">
                             {inputList.length !== 1 && <button
                                 className="mr10"
                                 onClick={() => handleRemoveClick(i)}>Remove</button>}

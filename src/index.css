@@ -43,7 +43,6 @@ body > div {
 
 .cv-editor {
     text-align: left;
-    height: 100%;
     width: 39%;
     margin: 0 0.5%;
     box-sizing: border-box;
@@ -109,7 +108,6 @@ body > div {
     box-sizing: border-box;
     margin: 0;
     white-space: normal;
-    text-align: center;
 }
 
 .dragged {
@@ -127,6 +125,7 @@ ul {
 
 .skillsgroup{
     margin-top: 10px 455px 0px 0px;
+    width: 200px;
 }
 
 .sectionBut{
@@ -145,6 +144,16 @@ ul {
     box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
     transform: translateY(2px);
 }
-.hidden{
-    display: none;
+.sectionselected{
+    width: 465px;
+
+}
+.field{
+    margin-left: 15px;
+}
+.split{
+    width: 300px;
+}
+h4{
+    margin-left: 7px;
 }

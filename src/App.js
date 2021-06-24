@@ -10,13 +10,13 @@ function App() {
         <SectionProvider>
             <div className="container">
                 <div className="side-content">
-                    <SectionEditor/>
-                    <StyleEditor/>
+                    <SectionEditor />
+                    <StyleEditor />
                 </div>
-                <CVEditor/>
+                <CVEditor />
                 <div className="side-content">
-                    <SectionSelector/>
-                    <TemplateSelector/>
+                    <SectionSelector />
+                    <TemplateSelector />
                 </div>
             </div>
         </SectionProvider>

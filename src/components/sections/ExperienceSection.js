@@ -41,7 +41,6 @@ function ExperienceSection(props) {
                 <h4>Experience</h4>
                 {inputList.map((x, i) => {
                     return (
-
                         <ul>
                             <li id="li_1">
                                 <label htmlFor="company">Company </label>
@@ -88,7 +87,7 @@ function ExperienceSection(props) {
                                         placeholder="Enter Course description"
                                         value={x.description}
                                         onChange={e => handleInputChange(e, i)}
-                                        id="Description" cols="45" rows="5" />
+                                        id="Description" cols="40" rows="5" />
                                 </div>
                                 <div className="btn-box">
                                     {inputList.length !== 1 && <button
@@ -97,7 +96,6 @@ function ExperienceSection(props) {
                                     {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
-
                             </li>
                         </ul>
 

@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import EducationSection from "./sections/EducationSection"
 import ReferenceSection from "./sections/ReferenceSection"
 import ExperienceSection from "./sections/ExperienceSection"
-import SkillsGroupSection from "./sections/SkillsGroupSection"
 import Skill from "./sections/Skill"
 import SectionTest from "./sections/SectionTest"
 

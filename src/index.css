@@ -47,6 +47,7 @@ body > div {
     width: 39%;
     margin: 0 0.5%;
     box-sizing: border-box;
+    overflow: scroll;
 }
 
 .cv-side-panel {

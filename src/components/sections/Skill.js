@@ -61,7 +61,7 @@ function Skill(props) {
                                         <input
                                             className="field"
                                             name="firstName"
-                                            placeholder="Enter Skill Name"
+                                            placeholder="Skill Name"
                                             value={x.firstName}
                                             onChange={e => handleInputChange(e, i)}
                                         />

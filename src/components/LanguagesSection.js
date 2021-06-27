@@ -58,7 +58,7 @@ function LanguagesSection(props) {
                                     <input
                                         className="field"
                                         name="firstName"
-                                        placeholder="Enter Language Name"
+                                        placeholder="Language Name"
                                         value={x.firstName}
                                         onChange={e => handleInputChange(e, i)}
                                     />

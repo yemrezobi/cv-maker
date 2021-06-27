@@ -48,7 +48,7 @@ function HobbiesSection(props) {
                                     <input
                                         className="field"
                                         name="hobby"
-                                        placeholder="Enter hobby Name"
+                                        placeholder="Hobby Name"
                                         value={x.hobby}
                                         onChange={e => handleInputChange(e, i)}
                                     />

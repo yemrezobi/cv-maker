@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import EducationSection from "./sections/EducationSection"
 import ReferenceSection from "./sections/ReferenceSection"
 import ExperienceSection from "./sections/ExperienceSection"
-import SkillsGroupSection from "./sections/SkillsGroupSection"
 import Skill from "./sections/Skill"
+import HobbiesSection from "./sections/HobbiesSection"
 import SectionTest from "./sections/SectionTest"
-
+import LanguagesSection from "./LanguagesSection"
+import BioSection from "./sections/BioSection";
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function SectionSelector(props) {
             section: <EducationSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
 
     const addTest = (e) => {
@@ -26,7 +27,7 @@ function SectionSelector(props) {
             section: <SectionTest key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addReference = (e) => {
         dispatch({
@@ -34,7 +35,7 @@ function SectionSelector(props) {
             section: <ReferenceSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addExperience = (e) => {
         dispatch({
@@ -42,7 +43,7 @@ function SectionSelector(props) {
             section: <ExperienceSection key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
     const addSkillsGroup = (e) => {
         dispatch({
@@ -50,31 +51,94 @@ function SectionSelector(props) {
             section: <Skill key={count} id={count} />,
             panel: "main"
         });
-        setCount(count+1);
+        setCount(count + 1);
     }
+
+    const addHobbies = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <HobbiesSection key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+    const addLanguages = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <LanguagesSection key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+    const addBio = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <BioSection key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+
     return (
         <div className="select-section box">
+            <table>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addEducation}>
+                            Add new education
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addReference}>
+                            Add new reference
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addExperience} >
+                            Add new Experience
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addSkillsGroup}>
+                            Add new Skills Group
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addTest}>
+                            Add Test Section
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addHobbies}>
+                            Add Hobbies
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addLanguages}>
+                            Add Languages
+                        </button>
+                    </td>
+                    <td>
+                        <button className="sectionBut" onClick={addBio}>
+                            Add Bio
+                        </button>
+                    </td>
+                    <td>
 
-            <button onClick={addEducation}>
-                Add new education
-            </button>
-            <button onClick={addReference}>
-                Add new reference
-            </button>
-            <button onClick={addExperience}>
-                Add new Experience
-            </button>
-            <br />
-            <button onClick={addSkillsGroup}>
-                Add new Skills Group
-            </button>
-            <button onClick={addTest}>
-                Add Test Section
-            </button>
-
+                    </td>
+                </tr>
+            </table>
         </div>
 
     );
 }
 
+
 export default SectionSelector
+
+
+

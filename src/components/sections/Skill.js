@@ -50,7 +50,7 @@ function Skill(props) {
         <Section id={props.id}>
             <div className="skillsgroup">
                 <h4>Skills</h4>
-                <input type="text" placeholder="Name of the Skills Group" />
+                <input type="text" className="inputTitle" placeholder="Name of the Skills Group" />
                 <br />
                 {inputList.map((x, i) => {
                     return (

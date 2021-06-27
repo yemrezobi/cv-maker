@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
+import { useRef } from "react";
 import { SectionContext } from "../contexts/SectionContext";
 
 function StyleEditor(){
@@ -8,6 +9,8 @@ function StyleEditor(){
     const [sectionBorderStyle, setSectionBorderStyle] = useState(sectionStyle.borderStyle);
     const [sectionBorderWidth, setSectionBorderWidth] = useState(sectionStyle.borderWidth);
     const [sectionBackgroundColor, setSectionBackgroundColor] = useState(sectionStyle.backgroundColor);
+    const [sectionBackgroundTransparent, setSectionBackgroundTransparent] = useState(false);
+    const ref = useRef();
 
     const handleSectionBackgroundColor = (event) => {
         setSectionBackgroundColor(event.target.value);
@@ -41,11 +44,29 @@ function StyleEditor(){
         });
     }
 
+    const handleSectionBackgroundTransparent = (event) => {
+        setSectionBackgroundTransparent(!sectionBackgroundTransparent);
+        /* if(sectionBackgroundTransparent){
+            setSectionStyle({
+                ...sectionStyle,
+                backgroundColor: "transparent"
+            });
+        } else {
+            setSectionStyle({
+                ...sectionStyle,
+                backgroundColor: ref.current.value
+            });
+        } */
+        
+    }
+
     return(
         <div className="edit-style box">
             <div className="edit-style-item">
                 <div className="edit-style-item-text">Section background color:</div>
-                <input type="color" value={sectionBackgroundColor} onChange={handleSectionBackgroundColor}></input>
+                <input type="color" value={sectionBackgroundColor} onChange={handleSectionBackgroundColor} disabled={sectionBackgroundTransparent} ref={ref}></input>
+                <input type="checkbox" name="backgroundTransparent" value={sectionBackgroundTransparent} onChange={handleSectionBackgroundTransparent}></input>
+                <label htmlFor="backgroundTransparent">Transparent Background</label>
             </div>
             <div className="edit-style-item">
                 <div className="edit-style-item-text">Text font:</div>

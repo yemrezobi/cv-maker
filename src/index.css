@@ -47,6 +47,7 @@ body > div {
     width: 39%;
     margin: 0 0.5%;
     box-sizing: border-box;
+    overflow: scroll;
 }
 
 .cv-side-panel {
@@ -114,4 +115,21 @@ body > div {
 
 .dragged {
     opacity: 0.5;
+}
+
+
+
+.Date{
+    max-width: 75px;
+} 
+ul {
+    list-style-type: none;
+}
+
+.skillsgroup{
+    margin-top: 10px 455px 0px 0px;
+}
+.templateIcon{
+    width: 150px;
+    height: 200px;
 }

@@ -27,7 +27,6 @@ function Pic(props) {
         setImages(imageList);
     };
 
-
     return (
         <Section id={props.id}>
             <ImageUploading

@@ -172,3 +172,14 @@ h4{
     font-size: 0.9em;
     height: 1.1rem;
   }
+
+  @media print {
+    .false {
+      display: none;
+    }
+  }
+  .image{
+    width: 120px; 
+    height: 160px;
+    resize:none;      
+  }

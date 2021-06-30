@@ -8,6 +8,8 @@ import tm1 from './Icons/tm1.png';
 import Skill from "./sections/Skill"
 import HobbiesSection from "./sections/HobbiesSection"
 import CVEditor from "./CVEditor";
+
+
 function TemplateSelector(props) {
 
     const dispatch = useDispatch();
@@ -20,7 +22,6 @@ function TemplateSelector(props) {
 
         });
     };
-
 
     const handleClick1 = (e) => {
         replaceTemplate();
@@ -40,8 +41,6 @@ function TemplateSelector(props) {
             section: <Tempalte2 />,
             panel: "main"
         });
-
-
     }
 
     const handleClick3 = (e) => {

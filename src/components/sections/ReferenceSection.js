@@ -36,7 +36,6 @@ function ReferenceSection(props) {
 
     const handleAddClick = () => {
         setInputList([...inputList, { name: "", Lname: "", phone: "", email: "" }]);
-
     };
 
     return (
@@ -45,7 +44,6 @@ function ReferenceSection(props) {
                 <h4>Refrence</h4>
                 {inputList.map((x, i) => {
                     return (
-
                         <table>
                             <tr>
                                 <label className="field" htmlFor="name">Name : </label><br />
@@ -91,9 +89,9 @@ function ReferenceSection(props) {
                                     id="email" type="text" maxLength="50" />
                                 <div className="field">
                                     {inputList.length !== 1 && <button
-                                        className="mr10"
+                                        className="remove"
                                         onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
+                                    {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
                             </tr>
@@ -102,7 +100,7 @@ function ReferenceSection(props) {
 
                 })}
             </div>
-            <button onClick={remove_reference}>
+            <button className="remove" onClick={remove_reference}>
                 Remove Section
             </button>
         </Section>

@@ -23,7 +23,7 @@ function BioSection(props) {
                 </div>
                 <hr className="split" />
             </div>
-            <button onClick={handleRemove}>
+            <button className="remove" onClick={handleRemove}>
                 Remove Me
             </button>
         </Section>

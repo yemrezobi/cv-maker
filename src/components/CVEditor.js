@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux"
 import { jsPDF } from "jspdf";
 
 import React from "react";
+import $ from 'jquery';
+
 import ReactDOMServer from 'react-dom/server';
 import html2canvas from 'html2canvas';
 
@@ -14,9 +16,18 @@ import { useReactToPrint } from "react-to-print";
 
 
 import { PDFExport } from '@progress/kendo-react-pdf';
+/*
+function printMe(e) {
+    var ifr = document.createElement('iframe');
+    ifr.style = 'height: 0px; width: 0px; position: absolute'
+    document.body.appendChild(ifr);
 
+    $(e).clone().appendTo(ifr.contentDocument.body);
+    ifr.contentWindow.print();
 
-
+    ifr.parentElement.removeChild(ifr);
+}
+*/
 function CVEditor(props) {
 
     const mainPanel = useSelector(state => state.sections.mainPanel);
@@ -39,12 +50,15 @@ function CVEditor(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [JSON.stringify(sidePanel)])
 
-
-
-    /* const handlePrint = useReactToPrint({
-         content: () => ref.current,
-     });*/
     const printDocument = (e) => {
+
+        /*      var buttons = document.getElementsByClassName("remove");
+      
+              for (var i = 0; i <= buttons.length; i++) {
+                  buttons[i].current.style.display = 'none';
+              }
+      
+      */
         const input = document.getElementById('s');
         html2canvas(input)
             .then((canvas) => {
@@ -79,6 +93,8 @@ function CVEditor(props) {
                 pdf.save('content.pdf');
             })
             ;
+
+        //printMe(document.getElementById('s'));
     }
 
 

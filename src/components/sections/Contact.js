@@ -43,7 +43,7 @@ function Contact(props) {
             </tr>
 
             <br />
-            <button onClick={remove_name}>
+            <button className="remove" onClick={remove_name}>
                 remove section
             </button>
         </Section>

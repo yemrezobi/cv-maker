@@ -109,10 +109,11 @@ function EducationSection(props) {
                                         id="Description" cols="40" rows="5" />
                                 </div>
                                 <div className="field">
-                                    {inputList.length !== 1 && <button
-                                        className="mr10"
-                                        onClick={() => handleRemoveClick(i)}>Remove Education</button>}
-                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
+                                    {inputList.length !== 1 &&
+                                        <button
+                                            className="remove"
+                                            onClick={() => handleRemoveClick(i)}>Remove Education</button>}
+                                    {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
                             </tr>
@@ -122,7 +123,7 @@ function EducationSection(props) {
 
             </div>
 
-            <button onClick={remove_education}>
+            <button className="remove" onClick={remove_education}>
                 Remove Section
             </button>
         </Section >

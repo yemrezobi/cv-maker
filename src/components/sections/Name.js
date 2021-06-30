@@ -20,7 +20,7 @@ function Name(props) {
             <h4>Name</h4>
             <input id="nameField" type="text" min="0" max="100" step="5" />
             <br />
-            <button onClick={remove_name}>
+            <button className="remove" onClick={remove_name}>
                 remove section
             </button>
         </Section>

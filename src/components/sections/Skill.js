@@ -1,9 +1,6 @@
 /* import ReactStars from "react-star-rating-component"; */
 import _uniqueId from 'lodash/uniqueId';
 import { useDispatch } from "react-redux";
-
-
-
 import React, { useState } from "react";
 import Section from '../Section';
 
@@ -42,7 +39,7 @@ function Skill(props) {
 
     // handle click event of the Add button
     const handleAddClick = () => {
-        setInputList([...inputList, { firstName: "", rating: "range" }]);
+        setInputList([...inputList, { firstName: "", rating: "" }]);
 
     };
 
@@ -51,43 +48,48 @@ function Skill(props) {
 
     return (
         <Section id={props.id}>
-            <h5 className="section">Skill</h5>
-            <input className="skillsgroup" type="text" placeholder="Enter the name of the skills group" />
-            {inputList.map((x, i) => {
-                return (
-                    <div className="skill">
-                        <table>
-                            <tr>
-                                <td>
-                                    <input
-                                        name="firstName"
-                                        placeholder="Enter Skill Name"
-                                        value={x.firstName}
-                                        onChange={e => handleInputChange(e, i)}
-                                    />
-                                </td>
-                                <td>
-                                    <input type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
-                                </td>
-                            </tr>
-                        </table>
+            <div className="skillsgroup">
+                <h4>Skills</h4>
+                <input type="text" placeholder="Name of the Skills Group" />
+                <br />
+                {inputList.map((x, i) => {
+                    return (
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input
+                                            className="field"
+                                            name="firstName"
+                                            placeholder="Enter Skill Name"
+                                            value={x.firstName}
+                                            onChange={e => handleInputChange(e, i)}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input className="field" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
+                                    </td>
+                                </tr>
+                            </table>
 
-                        <div className="btn-box">
-                            {inputList.length !== 1 && <button
-                                className="mr10"
-                                onClick={() => handleRemoveClick(i)}>Remove</button>}
-                            {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                            <div className="field">
+                                {inputList.length !== 1 && <button
+                                    className="mr10"
+                                    onClick={() => handleRemoveClick(i)}>Remove</button>}
+                                {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                            </div>
+
                         </div>
 
-                    </div>
-
-
-                );
-            })}
-            <br />
-            <button onClick={remove_skills}>
-                Remove group
-            </button>
+                    );
+                })}
+                <br />
+                <button onClick={remove_skills}>
+                    Remove group
+                </button>
+            </div>
         </Section>
     );
 }

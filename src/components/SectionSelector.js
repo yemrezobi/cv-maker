@@ -82,55 +82,57 @@ function SectionSelector(props) {
     return (
         <div className="select-section box">
             <table>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addEducation}>
-                            Add new education
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addReference}>
-                            Add new reference
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addExperience} >
-                            Add new Experience
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addSkillsGroup}>
-                            Add new Skills Group
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addTest}>
-                            Add Test Section
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addHobbies}>
-                            Add Hobbies
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addLanguages}>
-                            Add Languages
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addBio}>
-                            Add Bio
-                        </button>
-                    </td>
-                    <td>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addEducation}>
+                                Add new education
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addReference}>
+                                Add new reference
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addExperience} >
+                                Add new Experience
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addSkillsGroup}>
+                                Add new Skills Group
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addTest}>
+                                Add Test Section
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addHobbies}>
+                                Add Hobbies
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addLanguages}>
+                                Add Languages
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addBio}>
+                                Add Bio
+                            </button>
+                        </td>
+                        <td>
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 

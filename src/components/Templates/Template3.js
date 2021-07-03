@@ -1,4 +1,4 @@
-function Tampalte3(){
+function Template3(){
 
     return(
 
@@ -25,17 +25,17 @@ function Tampalte3(){
       <div class="address"><a href="https://goo.gl/maps/fiTBGT6Vnhy"><i class="fas fa-map-marker"></i><span>Provo, Utah</span></a>
       </div>
       <div class="email"><a href="mailto:astronaomical@gmail.com"><i class="fas fa-envelope"></i><span>astronaomical</span></a></div>
-      <div class="website"><a href="http://astronaomical.com/" target="_blank"> <i class="fas fa-home"></i><span>astronaomical.com</span></a></div>
+      <div class="website"><a href="http://astronaomical.com/" target="_blank" rel="noreferrer"> <i class="fas fa-home"></i><span>astronaomical.com</span></a></div>
     </div>
     <div class="follow">
       <h3>Follow Me</h3>
       <div class="box">
-        <a href="https://www.facebook.com/astronaomical/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/astronaomical/" target="_blank"><i class="fab fa-instagram "></i></a>
-        <a href="https://www.pinterest.com/astronaomical/" target="_blank"><i class="fab fa-pinterest"></i></a>
-        <a href="https://www.linkedin.com/in/naomi-weatherford-758385112/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://codepen.io/astronaomical/" target="_blank"><i class="fab fa-codepen"></i></a>
-        <a href="https://www.behance.net/astronaomical" target="_blank"><i class="fab fa-behance"></i></a>
+        <a href="https://www.facebook.com/astronaomical/" target="_blank" rel="noreferrer"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/astronaomical/" target="_blank" rel="noreferrer"><i class="fab fa-instagram "></i></a>
+        <a href="https://www.pinterest.com/astronaomical/" target="_blank" rel="noreferrer"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.linkedin.com/in/naomi-weatherford-758385112/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://codepen.io/astronaomical/" target="_blank" rel="noreferrer"><i class="fab fa-codepen"></i></a>
+        <a href="https://www.behance.net/astronaomical" target="_blank" rel="noreferrer"><i class="fab fa-behance"></i></a>
       </div>
     </div>
   </div>
@@ -133,4 +133,4 @@ function Tampalte3(){
     
     
     }
-    export default Tampalte3
+    export default Template3

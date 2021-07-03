@@ -5,14 +5,7 @@ import { useDispatch } from "react-redux"
 import { jsPDF } from "jspdf";
 
 import React from "react";
-import ReactDOMServer from 'react-dom/server';
 import html2canvas from 'html2canvas';
-
-import Pdf from "react-to-pdf";
-import { render } from "react-dom";
-import { useReactToPrint } from "react-to-print";
-
-
 
 
 function CVEditor(props) {

@@ -1,4 +1,4 @@
-function Tampalte1(){
+function Template1(){
 
   return(
       <div >
@@ -44,7 +44,7 @@ function Tampalte1(){
   )
 }
 
-export default Tampalte1
+export default Template1
 
 
 

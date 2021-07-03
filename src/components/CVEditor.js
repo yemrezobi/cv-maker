@@ -13,8 +13,6 @@ import { render } from "react-dom";
 import { useReactToPrint } from "react-to-print";
 
 
-import { PDFExport } from '@progress/kendo-react-pdf';
-
 
 
 function CVEditor(props) {

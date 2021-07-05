@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import Tempalte1 from './Templates/Template1';
 import Tempalte2 from './Templates/Template2';
 import Tempalte3 from './Templates/Template3';
+import Template2test from './Templates/Template2test'
 import BioSection from "./sections/BioSection";
 import Name from "./sections/Name";
 import tm1 from './Icons/tm1.png';
@@ -37,9 +38,9 @@ function TemplateSelector(props) {
     const handleClick2 = (e) => {
         replaceTemplate();
         dispatch({
-            type: "ADD_SECTION",
-            section: <Tempalte2 />,
-            panel: "main"
+            type: "ADD_TEMPLATE",
+            mainSections: Template2test.mainSections,
+            sideSections: Template2test.sideSections
         });
     }
 

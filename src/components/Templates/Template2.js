@@ -15,6 +15,7 @@ import Section from "../Section";
 import SectionSelector from '../SectionSelector'
 import { useSelector } from "react-redux"
 import { useEffect, useRef } from "react"
+import React from "react"
 
 function Tempalte2() {
     const ref = useRef();
@@ -35,18 +36,27 @@ function Tempalte2() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [JSON.stringify(sidePanel)])
 
-    return (
-        <div >
-            <div>
-                <Name />
-                <BioSection />
-                <ExperienceSection />
-                <HobbiesSection />
-                <Contact />
-                <Skill />
-            </div>
+    /* return (
+        <React.Fragment >
 
-        </div>
+            <Name />
+            <BioSection />
+            <ExperienceSection />
+            <HobbiesSection />
+            <Contact />
+            <Skill />
+
+        </React.Fragment>
+    ); */
+
+    return (
+        [
+            <Name />,
+            <BioSection />,
+            <ExperienceSection />,
+            <HobbiesSection />,
+            <Contact />,
+            <Skill />]
     );
 }
 

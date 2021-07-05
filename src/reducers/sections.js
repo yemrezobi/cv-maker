@@ -24,6 +24,19 @@ const sections = (state = initialState, action) => {
                 ]
             }
 
+        case "ADD_TEMPLATE":
+            return {
+                ...state,
+                mainPanel: [
+                    ...state.mainPanel,
+                    ...action.mainSections
+                ],
+                sidePanel: [
+                    ...state.sidePanel,
+                    ...action.sideSections
+                ]
+            }
+
         case "REMOVE_SECTION":
             return {
                 ...state,

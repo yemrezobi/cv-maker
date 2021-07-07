@@ -1,33 +1,12 @@
 import { useSelector } from "react-redux"
 import { useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
-
 import { jsPDF } from "jspdf";
-
 import React from "react";
-import $ from 'jquery';
-
-import ReactDOMServer from 'react-dom/server';
 import html2canvas from 'html2canvas';
 
-import Pdf from "react-to-pdf";
-import { render } from "react-dom";
-import { useReactToPrint } from "react-to-print";
 
 
-import { PDFExport } from '@progress/kendo-react-pdf';
-/*
-function printMe(e) {
-    var ifr = document.createElement('iframe');
-    ifr.style = 'height: 0px; width: 0px; position: absolute'
-    document.body.appendChild(ifr);
-
-    $(e).clone().appendTo(ifr.contentDocument.body);
-    ifr.contentWindow.print();
-
-    ifr.parentElement.removeChild(ifr);
-}
-*/
 function CVEditor(props) {
 
     const mainPanel = useSelector(state => state.sections.mainPanel);

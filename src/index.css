@@ -80,6 +80,7 @@ body > div {
 
 .edit-style {
     height: 50%;
+    overflow: scroll;
 }
 
 .edit-style-item {

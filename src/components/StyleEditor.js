@@ -46,7 +46,7 @@ function StyleEditor(){
 
     const handleSectionBackgroundTransparent = (event) => {
         setSectionBackgroundTransparent(!sectionBackgroundTransparent);
-        /* if(sectionBackgroundTransparent){
+        if(!sectionBackgroundTransparent){                  // The complement of the boolean is used because the state does not actually update until next render.
             setSectionStyle({
                 ...sectionStyle,
                 backgroundColor: "transparent"
@@ -56,8 +56,7 @@ function StyleEditor(){
                 ...sectionStyle,
                 backgroundColor: ref.current.value
             });
-        } */
-        
+        }
     }
 
     return(

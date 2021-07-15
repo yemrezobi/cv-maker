@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux"
 import { useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
+import { useContext } from "react"
+import { CvContext } from "../contexts/CvContext"
 
 import { jsPDF } from "jspdf";
 
@@ -10,6 +12,7 @@ import html2canvas from 'html2canvas';
 
 function CVEditor(props) {
 
+    const [style, ] = useContext(CvContext);
     const mainPanel = useSelector(state => state.sections.mainPanel);
     const sidePanel = useSelector(state => state.sections.sidePanel);
     const side = useSelector(state => state.sections.side);
@@ -77,11 +80,11 @@ function CVEditor(props) {
     return (
         <div id="s" className="cv-editor box" ref={ref} onDragOver={dragOver}>
             {side === "left" ?
-                <div className="cv-side-panel cv-side-panel-left">
+                <div className="cv-side-panel cv-side-panel-left" style={style}>
                     {sidePanel}
                 </div>
                 : null}
-            <div className={`cv-main-panel ${side ? "cv-main-panel-tight" : ""}`}>
+            <div className={`cv-main-panel ${side ? "cv-main-panel-tight" : ""}`} style={style}>
                 {mainPanel}
                 <hr className="split" />
 
@@ -89,7 +92,7 @@ function CVEditor(props) {
 
             </div>
             {side === "right" ?
-                <div className="cv-side-panel cv-side-panel-right">
+                <div className="cv-side-panel cv-side-panel-right" style={style}>
                     {sidePanel}
                 </div>
                 : null}

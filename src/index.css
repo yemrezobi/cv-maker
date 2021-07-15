@@ -46,7 +46,7 @@ body > div {
     width: 39%;
     margin: 0 0.5%;
     box-sizing: border-box;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .cv-side-panel {
@@ -80,7 +80,7 @@ body > div {
 
 .edit-style {
     height: 50%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .edit-style-item {
@@ -105,11 +105,11 @@ body > div {
 
 .section {
     position: relative;
-    width: 100%;
     border-color: grey;
     box-sizing: border-box;
     margin: 0;
     white-space: normal;
+    overflow: auto;
 }
 
 .dragged {

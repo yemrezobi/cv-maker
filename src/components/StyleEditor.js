@@ -1,35 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { useRef } from "react";
 import { SectionContext } from "../contexts/SectionContext";
 import { CvContext } from "../contexts/CvContext";
+import chroma from "chroma-js";
 
 function StyleEditor(){
     const [cvStyle, setCvStyle] = useContext(CvContext);
     const [sectionStyle, setSectionStyle] = useContext(SectionContext);
     const [sectionFont, setSectionFont] = useState(sectionStyle.fontFamily);
     const [sectionBorderStyle, setSectionBorderStyle] = useState(sectionStyle.borderStyle);
-    const [sectionBorderColor, setSectionBorderColor] = useState(sectionStyle.borderColor);
     const [sectionBorderWidth, setSectionBorderWidth] = useState(sectionStyle.borderWidth.slice(0, -2));
     const [sectionMarginVertical, setSectionMarginVertical] = useState(sectionStyle.marginTop.slice(0, -2));
     const [sectionMarginHorizontal, setSectionMarginHorizontal] = useState(sectionStyle.marginLeft.slice(0, -2));
     const [cvBackgroundColor, setCvBackgroundColor] = useState(cvStyle.backgroundColor);
-    const [sectionBackgroundColor, setSectionBackgroundColor] = useState(sectionStyle.backgroundColor);
     const [sectionBackgroundTransparent, setSectionBackgroundTransparent] = useState(false);
-    const ref = useRef();
+    const [colorBase, setColorBase] = useState();
+    const [colorLight, setColorLight] = useState();
+    const [, setColorDark] = useState();
 
     const handleCvBackgroundColor = (event) => {
         setCvBackgroundColor(event.target.value);
         setCvStyle({
             ...cvStyle,
-            backgroundColor: event.target.value
-        });
-    }
-
-    const handleSectionBackgroundColor = (event) => {
-        setSectionBackgroundColor(event.target.value);
-        setSectionStyle({
-            ...sectionStyle,
             backgroundColor: event.target.value
         });
     }
@@ -47,14 +39,6 @@ function StyleEditor(){
         setSectionStyle({
             ...sectionStyle,
             borderStyle: event.target.value
-        });
-    }
-
-    const handleSectionBorderColor = (event) => {
-        setSectionBorderColor(event.target.value);
-        setSectionStyle({
-            ...sectionStyle,
-            borderColor: event.target.value
         });
     }
 
@@ -104,8 +88,10 @@ function StyleEditor(){
     }
 
     const handleSectionBackgroundTransparent = (event) => {
-        setSectionBackgroundTransparent(!sectionBackgroundTransparent);
-        if(!sectionBackgroundTransparent){                  // The complement of the boolean is used because the state does not actually update until next render.
+        console.log(colorBase);
+        console.log(colorLight);
+        setSectionBackgroundTransparent(event.target.checked);
+        if(event.target.checked){
             setSectionStyle({
                 ...sectionStyle,
                 backgroundColor: "transparent"
@@ -113,10 +99,45 @@ function StyleEditor(){
         } else {
             setSectionStyle({
                 ...sectionStyle,
-                backgroundColor: ref.current.value
+                backgroundColor: colorLight
             });
         }
     }
+
+    const updateColorPalette = (event) => {
+        let base = chroma(event.target.value).hex();
+        let light = chroma(base).brighten(1).hex();
+        let dark = chroma(base).darken(1).hex();
+        setColorLight(light);
+        setColorBase(base);
+        setColorDark(dark);
+
+        setSectionStyle({
+            ...sectionStyle,
+            backgroundColor: sectionBackgroundTransparent ? "transparent" : light,
+            borderColor: dark
+        });
+    }
+
+    const randomizeColor = (event) => {
+        let base = chroma.random().hex();
+        let light = chroma(base).brighten(1).hex();
+        let dark = chroma(base).darken(1).hex();
+        setColorLight(light);
+        setColorBase(base);
+        setColorDark(dark);
+
+        setSectionStyle({
+            ...sectionStyle,
+            backgroundColor: sectionBackgroundTransparent ? "transparent" : light,
+            borderColor: dark
+        });
+    }
+
+    useEffect(() => {
+        randomizeColor();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return(
         <div className="edit-style box">
@@ -125,10 +146,13 @@ function StyleEditor(){
                 <input type="color" name="cvBackgroundColor" value={cvBackgroundColor} onChange={handleCvBackgroundColor}></input>
             </div>
             <div className="edit-style-item">
-                <label htmlFor="sectionBackgroundColor">Section Background Color: </label>
-                <input type="color" name="sectionBackgroundColor" value={sectionBackgroundColor} onChange={handleSectionBackgroundColor} disabled={sectionBackgroundTransparent} ref={ref}></input>
-                <input type="checkbox" name="backgroundTransparent" value={sectionBackgroundTransparent} onChange={handleSectionBackgroundTransparent}></input>
+                <label>Base Color: </label>
+                <input type="color" value={colorBase} onChange={updateColorPalette}></input>
+                <input type="checkbox" name="backgroundTransparent" checked={sectionBackgroundTransparent} onChange={handleSectionBackgroundTransparent}></input>
                 <label htmlFor="backgroundTransparent">Transparent Background</label>
+            </div>
+            <div className="edit-style-item">
+                <button onClick={randomizeColor}>Randomize Color</button>
             </div>
             <div className="edit-style-item">
                 <div className="edit-style-item-text">Text Font:</div>
@@ -153,10 +177,6 @@ function StyleEditor(){
                     <option value="dashed">Dashed</option>
                     <option value="solid">Solid</option>
                 </select>
-            </div>
-            <div className="edit-style-item">
-                <label htmlFor="sectionBorderColor">Border Color: </label>
-                <input type="color" name="sectionBorderColor" value={sectionBorderColor} onChange={handleSectionBorderColor}></input>
             </div>
             <div className="edit-style-item">
                 <label htmlFor="sectionBorderWidth">Border Width: </label>

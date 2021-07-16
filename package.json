@@ -10,6 +10,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "angular-star-rating": "*",
+    "chroma-js": "^2.1.2",
     "html2canvas": "*",
     "jspdf": "^2.3.1",
     "react": "^17.0.2",

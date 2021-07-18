@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { SectionContext } from "../contexts/SectionContext";
 import { CvContext } from "../contexts/CvContext";
+import { LocalizationContext } from "../contexts/LocalizationContext"
 import chroma from "chroma-js";
 
 function StyleEditor(){
     const [cvStyle, setCvStyle] = useContext(CvContext);
     const [sectionStyle, setSectionStyle] = useContext(SectionContext);
+    const [localizationContext, setLocalizationContext] = useContext(LocalizationContext);
     const [sectionFont, setSectionFont] = useState(sectionStyle.fontFamily);
     const [sectionBorderStyle, setSectionBorderStyle] = useState(sectionStyle.borderStyle);
     const [sectionBorderWidth, setSectionBorderWidth] = useState(sectionStyle.borderWidth.slice(0, -2));
@@ -17,6 +19,8 @@ function StyleEditor(){
     const [colorBase, setColorBase] = useState();
     const [colorLight, setColorLight] = useState();
     const [, setColorDark] = useState();
+    const [selectedLanguage, setSelectedLanguage] = useState();
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const handleCvBackgroundColor = (event) => {
         setCvBackgroundColor(event.target.value);
@@ -134,28 +138,70 @@ function StyleEditor(){
         });
     }
 
+    const handleSelectedLanguage = (event) => {
+        setSelectedLanguage(event.target.value);
+        switch(event.target.value){
+            case "en":
+                setLocalizationContext({
+                    ...localizationContext,
+                    selectedLanguage: "en"
+                })
+                setLocalization(localizationContext.en);
+                break;
+            case "de":
+                setLocalizationContext({
+                    ...localizationContext,
+                    selectedLanguage: "de"
+                })
+                setLocalization(localizationContext.de);
+                break;
+            case "tr":
+                setLocalizationContext({
+                    ...localizationContext,
+                    selectedLanguage: "tr"
+                })
+                setLocalization(localizationContext.tr);
+                break;
+            default:
+                setLocalizationContext({
+                    ...localizationContext,
+                    selectedLanguage: "en"
+                })
+                setLocalization(localizationContext.en);
+                break;
+        }
+    }
+
     useEffect(() => {
         randomizeColor();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []);
 
     return(
         <div className="edit-style box">
             <div className="edit-style-item">
-                <label htmlFor="cvBackgroundColor">Background Color: </label>
+                <label htmlFor="selectedLanguage">{localization.styleEditor_language}: </label>
+                <select name="selectedLanguage" value={selectedLanguage} onChange={handleSelectedLanguage}>
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="tr">Türkçe</option>
+                </select>
+            </div>
+            <div className="edit-style-item">
+                <label htmlFor="cvBackgroundColor">{localization.styleEditor_backgroundColor}: </label>
                 <input type="color" name="cvBackgroundColor" value={cvBackgroundColor} onChange={handleCvBackgroundColor}></input>
             </div>
             <div className="edit-style-item">
-                <label>Base Color: </label>
+                <label>{localization.styleEditor_baseColor}: </label>
                 <input type="color" value={colorBase} onChange={updateColorPalette}></input>
                 <input type="checkbox" name="backgroundTransparent" checked={sectionBackgroundTransparent} onChange={handleSectionBackgroundTransparent}></input>
-                <label htmlFor="backgroundTransparent">Transparent Background</label>
+                <label htmlFor="backgroundTransparent">{localization.styleEditor_transparentBackground}</label>
             </div>
             <div className="edit-style-item">
-                <button onClick={randomizeColor}>Randomize Color</button>
+                <button onClick={randomizeColor}>{localization.styleEditor_randomizeColor}</button>
             </div>
             <div className="edit-style-item">
-                <div className="edit-style-item-text">Text Font:</div>
+                <div className="edit-style-item-text">{localization.styleEditor_textFont}:</div>
                 <select value={sectionFont} onChange={handleSectionFont}>
                     <option value="Arial, Helvetica Neue, Helvetica, sans-serif">Arial</option>
                     <option value="Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif">Calibri</option>
@@ -171,7 +217,7 @@ function StyleEditor(){
                 </select>
             </div>
             <div className="edit-style-item">
-                <div className="edit-style-item-text">Border Style:</div>
+                <div className="edit-style-item-text">{localization.styleEditor_borderStyle}:</div>
                 <select value={sectionBorderStyle} onChange={handleSectionBorderStyle}>
                     <option value="dotted">Dotted</option>
                     <option value="dashed">Dashed</option>
@@ -179,19 +225,22 @@ function StyleEditor(){
                 </select>
             </div>
             <div className="edit-style-item">
-                <label htmlFor="sectionBorderWidth">Border Width: </label>
+                <label htmlFor="sectionBorderWidth">{localization.styleEditor_borderWidth}: </label>
                 <input type="number" name="sectionBorderWidth" min="0" max="5" value={sectionBorderWidth} onChange={handleSectionBorderWidth}></input>
             </div>
             <div className="edit-style-item">
-                <label htmlFor="sectionMarginVertical">Vertical Margin: </label>
+                <label htmlFor="sectionMarginVertical">{localization.styleEditor_verticalMargin}: </label>
                 <input type="number" name="sectionMarginVertical" min="0" value={sectionMarginVertical} onChange={handleSectionMarginVertical}></input>
             </div>
             <div className="edit-style-item">
-                <label htmlFor="sectionMarginHorizontal">Horizontal Margin: </label>
+                <label htmlFor="sectionMarginHorizontal">{localization.styleEditor_horizontalMargin}: </label>
                 <input type="number" name="sectionMarginHorizontal" min="0" value={sectionMarginHorizontal} onChange={handleSectionMarginHorizontal}></input>
             </div>
         </div>
-    )
+    );
+    /* return(<div className="edit-style box">
+        <button onClick={(event) => {console.log(localization.styleEditor_language)}}>Test</button>
+    </div>); */
 }
 
 export default StyleEditor

@@ -1,15 +1,12 @@
-import _uniqueId from 'lodash/uniqueId';
 import { useDispatch } from "react-redux";
-import React, { useState } from "react";
+import { useState } from "react";
 import Section from '../Section';
 import ImageUploading from 'react-images-uploading';
 
-import { useEffect } from 'react';
-
-
 function Pic(props) {
-
     const dispatch = useDispatch();
+    const [images, setImages] = useState();
+    const maxNumber = 1;
 
     const remove_pic = (e) => {
         dispatch({
@@ -17,9 +14,6 @@ function Pic(props) {
             id: props.id
         });
     }
-
-    const [images, setImages] = React.useState([]);
-    const maxNumber = 1;
 
     const onChange = (imageList, addUpdateIndex) => {
         // data for submit

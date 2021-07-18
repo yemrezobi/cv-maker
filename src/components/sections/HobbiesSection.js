@@ -48,7 +48,7 @@ function HobbiesSection(props) {
                                     <input
                                         className="field"
                                         name="hobby"
-                                        placeholder="Enter hobby Name"
+                                        placeholder="Hobby Name"
                                         value={x.hobby}
                                         onChange={e => handleInputChange(e, i)}
                                     />
@@ -58,9 +58,9 @@ function HobbiesSection(props) {
                                 <td>
                                     <div className="field">
                                         {inputList.length !== 1 && <button
-                                            className="mr10"
+                                            className="remove"
                                             onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                        {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add</button>}
                                     </div>
                                 </td>
                             </tr>
@@ -69,7 +69,7 @@ function HobbiesSection(props) {
                 );
             })}
             <br />
-            <button onClick={remove_hobbies}>
+            <button className="remove" onClick={remove_hobbies}>
                 Remove group
             </button>
 

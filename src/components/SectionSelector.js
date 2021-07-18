@@ -6,8 +6,12 @@ import ExperienceSection from "./sections/ExperienceSection"
 import Skill from "./sections/Skill"
 import HobbiesSection from "./sections/HobbiesSection"
 import SectionTest from "./sections/SectionTest"
-import LanguagesSection from "./LanguagesSection"
+import LanguagesSection from "./sections/LanguagesSection"
 import BioSection from "./sections/BioSection";
+import Name from "./sections/Name";
+import Contact from "./sections/Contact";
+import Pic from "./sections/Pic";
+
 function SectionSelector(props) {
     const [count, setCount] = useState(0);
     const dispatch = useDispatch();
@@ -79,35 +83,61 @@ function SectionSelector(props) {
         setCount(count + 1);
     }
 
+    const addName = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <Name key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+    const addContact = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <Contact key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+
+    const addPic = (e) => {
+        dispatch({
+            type: "ADD_SECTION",
+            section: <Pic key={count} id={count} />,
+            panel: "main"
+        });
+        setCount(count + 1);
+    }
+
     return (
         <div className="select-section box">
             <table>
                 <tr>
                     <td>
                         <button className="sectionBut" onClick={addEducation}>
-                            Add new education
+                            Add education
                         </button>
                     </td>
                     <td>
                         <button className="sectionBut" onClick={addReference}>
-                            Add new reference
+                            Add reference
                         </button>
                     </td>
                     <td>
                         <button className="sectionBut" onClick={addExperience} >
-                            Add new Experience
+                            Add Experience
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button className="sectionBut" onClick={addSkillsGroup}>
-                            Add new Skills Group
+                            Add Skills Group
                         </button>
                     </td>
                     <td>
-                        <button className="sectionBut" onClick={addTest}>
-                            Add Test Section
+                        <button className="sectionBut" onClick={addName}>
+                            Add Name
                         </button>
                     </td>
                     <td>
@@ -128,12 +158,20 @@ function SectionSelector(props) {
                         </button>
                     </td>
                     <td>
-
+                        <button className="sectionBut" onClick={addContact}>
+                            Add Contact infos
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button className="sectionBut" onClick={addPic}>
+                            Add Pic
+                        </button>
                     </td>
                 </tr>
             </table>
         </div>
-
     );
 }
 

@@ -114,8 +114,6 @@ body > div {
     opacity: 0.5;
 }
 
-
-
 .Date{
     max-width: 75px;
 } 
@@ -161,3 +159,31 @@ ul {
 h4{
     margin-left: 7px;
 }
+
+.templateIcon{
+    width: 150px;
+    height: 200px;
+    width: 200px;
+}
+
+#nameField {
+    font-size: 1.5em;
+    height: 1.5rem;
+  }
+
+  
+.inputTitle {
+    font-size: 0.9em;
+    height: 1.1rem;
+  }
+
+  @media print {
+    .false {
+      display: none;
+    }
+  }
+  .image{
+    width: 120px; 
+    height: 160px;
+    resize:none;      
+  }

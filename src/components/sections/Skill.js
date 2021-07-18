@@ -50,7 +50,7 @@ function Skill(props) {
         <Section id={props.id}>
             <div className="skillsgroup">
                 <h4>Skills</h4>
-                <input type="text" placeholder="Name of the Skills Group" />
+                <input type="text" className="inputTitle" placeholder="Name of the Skills Group" />
                 <br />
                 {inputList.map((x, i) => {
                     return (
@@ -61,7 +61,7 @@ function Skill(props) {
                                         <input
                                             className="field"
                                             name="firstName"
-                                            placeholder="Enter Skill Name"
+                                            placeholder="Skill Name"
                                             value={x.firstName}
                                             onChange={e => handleInputChange(e, i)}
                                         />
@@ -76,9 +76,9 @@ function Skill(props) {
 
                             <div className="field">
                                 {inputList.length !== 1 && <button
-                                    className="mr10"
+                                    className="remove"
                                     onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                                {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add</button>}
                             </div>
 
                         </div>
@@ -86,7 +86,7 @@ function Skill(props) {
                     );
                 })}
                 <br />
-                <button onClick={remove_skills}>
+                <button className="remove" onClick={remove_skills}>
                     Remove group
                 </button>
             </div>

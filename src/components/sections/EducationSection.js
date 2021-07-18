@@ -39,83 +39,94 @@ function EducationSection(props) {
                 <h4>Education</h4>
                 {inputList.map((x, i) => {
                     return (
-                        <ul className="section">
-                            <li id="li_1">
-                                <label className="description" htmlFor="coursetName">Education/course name </label>
+                        <table className="section">
+                            <tr id="li_1">
+                                <label className="field" htmlFor="coursetName">Education/course name </label>
                                 <div>
-                                    <input name="coursetName"
+                                    <input
+                                        className="field"
+                                        name="coursetName"
                                         placeholder="Course Name"
                                         value={x.coursetName}
                                         onChange={e => handleInputChange(e, i)}
                                         id="element_1" type="text" maxLength="50" />
                                 </div>
-                            </li>
-                            <li id="li_2">
-                                <label className="description" htmlFor="organisation">Organisation </label>
+                            </tr>
+                            <tr id="li_2">
+                                <label className="field" htmlFor="organisation">Organisation </label>
                                 <div>
                                     <input name="organisation"
+                                        className="field"
                                         placeholder="Course organisation"
                                         value={x.organisation}
                                         onChange={e => handleInputChange(e, i)}
                                         id="element_2" type="text" maxLength="50" />
                                 </div>
-                            </li>
-                            <li id="li_3">
-                                <label className="description" htmlFor="city">City </label>
+                            </tr>
+                            <tr id="li_3">
+                                <label className="field" htmlFor="city">City </label>
                                 <div>
                                     <input
+                                        className="field"
                                         name="city"
                                         placeholder="Course city"
                                         value={x.city}
                                         onChange={e => handleInputChange(e, i)}
                                         id="element_3" type="text" maxLength="50" />
                                 </div>
-                            </li>
-                            <li id="li_4">
-                                <label className="description" htmlFor="yearofstart">Year of Start - </label>
-                                <label className="description" htmlFor="yearoftheend">Year of End </label>
-                                <div>
-                                    <input name="yearofstart"
+                            </tr>
+                            <tr id="li_4">
+                                <label className="" htmlFor="yearofstart">Year of Start -  </label>
+                                <label className="" htmlFor="yearoftheend">Year of End </label>
+                            </tr>
+                            <tr>
+                                <div className="field">
+                                    <input
+                                        className="field"
+                                        name="yearofstart"
                                         placeholder="Start Year"
                                         value={x.yearofstart}
                                         onChange={e => handleInputChange(e, i)}
                                         className="Date" id="element_4" type="text" maxLength="4" />
                                     <input
+                                        className="field"
                                         name="yearoftheend"
                                         placeholder="End Year"
                                         value={x.yearoftheend}
                                         onChange={e => handleInputChange(e, i)}
                                         className="Date" id="element_6" type="text" maxLength="4" />
                                 </div>
-                            </li>
-                            <li id="li_5">
-                                <label className="description" htmlFor="element_5">Description </label>
+                            </tr>
+                            <tr id="li_5">
+                                <label className="field" htmlFor="element_5">Description </label>
                                 <div>
                                     <textarea
+                                        className="field"
                                         name="description"
                                         placeholder="Enter Course description"
                                         value={x.description}
                                         onChange={e => handleInputChange(e, i)}
                                         id="Description" cols="40" rows="5" />
                                 </div>
-                                <div className="btn-box">
-                                    {inputList.length !== 1 && <button
-                                        className="mr10"
-                                        onClick={() => handleRemoveClick(i)}>Remove Education</button>}
-                                    {inputList.length - 1 === i && <button onClick={handleAddClick}>Add More</button>}
+                                <div className="field">
+                                    {inputList.length !== 1 &&
+                                        <button
+                                            className="remove"
+                                            onClick={() => handleRemoveClick(i)}>Remove Education</button>}
+                                    {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add More</button>}
                                 </div>
                                 <hr className="split" />
-                            </li>
-                        </ul>
+                            </tr>
+                        </table>
                     );
                 })}
 
             </div>
 
-            <button onClick={remove_education}>
+            <button className="remove" onClick={remove_education}>
                 Remove Section
             </button>
-        </Section>
+        </Section >
     )
 }
 

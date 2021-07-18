@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import Template1 from './templates/Template1';
 import Template2 from './templates/Template2';
 import Template3 from './templates/Template3';
-import Template2test from './Templates/Template2test';
+import Template2test from './templates/Template2test';
 
 import tm1 from './icons/tm1.png';
 

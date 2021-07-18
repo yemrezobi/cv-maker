@@ -9,7 +9,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import Skill from "./sections/Skill";
 import HobbiesSection from "./sections/HobbiesSection";
 import SectionTest from "./sections/SectionTest";
-import LanguagesSection from "./LanguagesSection";
+import LanguagesSection from "./sections/LanguagesSection";
 import BioSection from "./sections/BioSection";
 import Name from "./sections/Name";
 import Contact from "./sections/Contact";

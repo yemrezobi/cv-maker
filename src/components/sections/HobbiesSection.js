@@ -1,5 +1,3 @@
-/* import ReactStars from "react-star-rating-component"; */
-import _uniqueId from 'lodash/uniqueId';
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
@@ -77,4 +75,3 @@ function HobbiesSection(props) {
     );
 }
 export default HobbiesSection;
-//            <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>

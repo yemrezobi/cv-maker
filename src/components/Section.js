@@ -14,8 +14,7 @@ function Section(props) {
     const mainPanel = useSelector(state => state.sections.mainPanel);
     const sidePanel = useSelector(state => state.sections.sidePanel);
     const dispatch = useDispatch();
-    const style = useContext(SectionContext);
-
+    const [style, ] = useContext(SectionContext);    //Do not remove destructure
     const dragStart = (e) => {
         setDragged(true);
     }

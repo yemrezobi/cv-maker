@@ -1,4 +1,3 @@
-import _uniqueId from 'lodash/uniqueId';
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
@@ -40,10 +39,7 @@ function LanguagesSection(props) {
         setInputList([...inputList, { firstName: "", rating: "" }]);
 
     };
-
-    const [count] = useState(_uniqueId('prefix-'));
-
-
+    
     return (
         <Section id={props.id}>
             <h4 >Languages</h4>

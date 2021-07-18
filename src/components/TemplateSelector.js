@@ -1,15 +1,10 @@
 import { useDispatch } from "react-redux";
-import Tempalte1 from './Templates/Template1';
-import Tempalte2 from './Templates/Template2';
-import Tempalte3 from './Templates/Template3';
+import Template1 from './templates/Template1';
+import Template2 from './templates/Template2';
+import Template3 from './templates/Template3';
 import Template2test from './Templates/Template2test';
-import BioSection from "./sections/BioSection";
-import Name from "./sections/Name";
-import tm1 from './Icons/tm1.png';
-import Skill from "./sections/Skill";
-import HobbiesSection from "./sections/HobbiesSection";
-import CVEditor from "./CVEditor";
 
+import tm1 from './icons/tm1.png';
 
 function TemplateSelector(props) {
 
@@ -18,9 +13,9 @@ function TemplateSelector(props) {
     const replaceTemplate = (e) => {
         dispatch({
             type: "REMOVE_SECTION",
-            section: <Tempalte1 />,
-            panel: "main"
-
+            section:  <Template1/> ,
+            panel : "main"
+    
         });
     };
 
@@ -28,8 +23,8 @@ function TemplateSelector(props) {
         replaceTemplate();
         dispatch({
             type: "ADD_SECTION",
-            section: <Tempalte1 />,
-            panel: "main"
+            section:  <Template1/> ,
+            panel : "main"
 
         });
 
@@ -48,22 +43,22 @@ function TemplateSelector(props) {
         replaceTemplate();
         dispatch({
             type: "ADD_SECTION",
-            section: <Tempalte3 />,
-            panel: "main"
+            section:<Template3/> ,
+            panel : "main"
         });
     }
 
     return (
         <div className="select-section box">
             <button onClick={handleClick1}>
-                <img className="templateIcon" src={tm1}></img>
+                <img className="templateIcon" src={tm1} alt="template1"></img>
             </button>
             <button onClick={handleClick2}>
-                <img className="templateIcon" src={tm1}></img>
-            </button>
-            <button onClick={handleClick3}>
-                <img className="templateIcon" src={tm1}></img>
-            </button>
+                <img className="templateIcon" src={tm1} alt="template1"></img>     
+           </button>
+           <button onClick={handleClick3}>
+                <img className="templateIcon" src={tm1} alt="template1"></img>     
+           </button>
 
 
         </div>

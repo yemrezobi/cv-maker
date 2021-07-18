@@ -1,19 +1,24 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import EducationSection from "./sections/EducationSection"
-import ReferenceSection from "./sections/ReferenceSection"
-import ExperienceSection from "./sections/ExperienceSection"
-import Skill from "./sections/Skill"
-import HobbiesSection from "./sections/HobbiesSection"
-import SectionTest from "./sections/SectionTest"
-import LanguagesSection from "./sections/LanguagesSection"
+import { useContext } from "react";
+import { useEffect } from "react";
+import { LocalizationContext } from "../contexts/LocalizationContext";
+import EducationSection from "./sections/EducationSection";
+import ReferenceSection from "./sections/ReferenceSection";
+import ExperienceSection from "./sections/ExperienceSection";
+import Skill from "./sections/Skill";
+import HobbiesSection from "./sections/HobbiesSection";
+import SectionTest from "./sections/SectionTest";
+import LanguagesSection from "./LanguagesSection";
 import BioSection from "./sections/BioSection";
 import Name from "./sections/Name";
 import Contact from "./sections/Contact";
 import Pic from "./sections/Pic";
 
 function SectionSelector(props) {
+    const [localizationContext, ] = useContext(LocalizationContext);
     const [count, setCount] = useState(0);
+    const [localization, setLocalization] = useState(localizationContext.en);
     const dispatch = useDispatch();
 
     const addEducation = (e) => {
@@ -108,68 +113,81 @@ function SectionSelector(props) {
         });
         setCount(count + 1);
     }
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+        
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
 
     return (
         <div className="select-section box">
             <table>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addEducation}>
-                            Add education
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addReference}>
-                            Add reference
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addExperience} >
-                            Add Experience
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addSkillsGroup}>
-                            Add Skills Group
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addName}>
-                            Add Name
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addHobbies}>
-                            Add Hobbies
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addLanguages}>
-                            Add Languages
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addBio}>
-                            Add Bio
-                        </button>
-                    </td>
-                    <td>
-                        <button className="sectionBut" onClick={addContact}>
-                            Add Contact infos
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button className="sectionBut" onClick={addPic}>
-                            Add Pic
-                        </button>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addEducation}>
+                                {localization.sectionSelector_addEducation}
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addReference}>
+                                {localization.sectionSelector_addReferences}
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addExperience} >
+                                {localization.sectionSelector_addExperience}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addSkillsGroup}>
+                                {localization.sectionSelector_addSkills}
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addTest}>
+                                Add Test Section
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addHobbies}>
+                                {localization.sectionSelector_addHobbies}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addLanguages}>
+                                {localization.sectionSelector_addLanguages}
+                            </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addBio}>
+                                {localization.sectionSelector_addBio}
+                            </button>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     );

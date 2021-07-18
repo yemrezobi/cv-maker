@@ -10,7 +10,11 @@ function SectionProvider(props) {
         backgroundColor: "#32a852",
         fontFamily: "Arial, Helvetica Neue, Helvetica, sans-serif",
         borderStyle: "solid",
-        borderWidth: "1px"
+        borderWidth: "1px",
+        marginTop: "0px",
+        marginBottom: "0px",
+        marginLeft: "0px",
+        marginRight: "0px"
     });
 
     return(

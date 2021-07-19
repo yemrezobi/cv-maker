@@ -21,6 +21,7 @@ body > div {
     white-space: nowrap;
     background-color: aquamarine;
     padding: 0.5vh 0.5vw;
+    overflow: hidden;
 }
 
 .box {

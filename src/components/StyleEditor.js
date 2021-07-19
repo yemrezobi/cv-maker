@@ -178,7 +178,7 @@ function StyleEditor(){
     }, []);
 
     return(
-        <div className="edit-style box">
+        <div className="edit-style box" style={{ marginTop: "-3px" }}>
             <div className="edit-style-item">
                 <label htmlFor="selectedLanguage">{localization.styleEditor_language}: </label>
                 <select name="selectedLanguage" value={selectedLanguage} onChange={handleSelectedLanguage}>

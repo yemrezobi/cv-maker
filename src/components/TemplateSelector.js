@@ -49,7 +49,7 @@ function TemplateSelector(props) {
     }
 
     return (
-        <div className="select-section box">
+        <div className="select-section box" style={{ marginTop: "-3px" }}>
             <button onClick={handleClick1}>
                 <img className="templateIcon" src={tm1} alt="template1"></img>
             </button>

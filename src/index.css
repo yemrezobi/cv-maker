@@ -44,6 +44,7 @@ body > div {
 
 .cv-editor {
     text-align: left;
+    height: 100%;
     width: 39%;
     margin: 0 0.5%;
     box-sizing: border-box;

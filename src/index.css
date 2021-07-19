@@ -39,6 +39,10 @@ body > div {
     width: 30%;
     height: 100%;
     box-sizing: border-box;
+
+    overflow: auto;
+    
+    
 }
 
 .cv-editor {
@@ -126,11 +130,7 @@ ul {
 .skillsgroup{
     margin-top: 10px 455px 0px 0px;
 }
-.templateIcon{
-    width: 150px;
-    height: 200px;
-    width: 200px;
-}
+
 
 .sectionBut{
     display: inline-block;
@@ -168,9 +168,8 @@ h4{
 }
 
 .templateIcon{
-    width: 150px;
-    height: 200px;
-    width: 200px;
+    width: 175px;
+    height: 220px;
 }
 
 #nameField {
@@ -194,3 +193,30 @@ h4{
     height: 160px;
     resize:none;      
   }
+
+
+  .mytemp{
+
+    background-color: rgb(136, 136, 247);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: blue;
+    display: block;
+
+  }
+
+
+  .mytemp2{
+    color: #daf577;
+    background-color: #eca3a3;
+    font-family: "Lucida Handwriting";
+    border-color: black;
+
+  }
+
+  .bigfont{
+
+    font-size: 2vw;
+    display: inline-block;
+
+}

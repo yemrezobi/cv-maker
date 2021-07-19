@@ -17,11 +17,12 @@ function Contact(props) {
     }
     return (
         <Section id={props.id}>
+        <div>
             <h4>Contact Me</h4>
             <tr>
                 <tr>
                     <td>
-                        <label className="field" htmlFor="phone">Phone : </label><br />
+                        <label >Phone : </label><br />
                         <input
                             className="field"
                             name="phone"
@@ -32,7 +33,7 @@ function Contact(props) {
                 <br />
                 <tr>
                     <td>
-                        <label className="field" htmlFor="email">Email : </label><br />
+                        <label >Email : </label><br />
                         <input
                             name="email"
                             className="field"
@@ -46,6 +47,7 @@ function Contact(props) {
             <button className="remove" onClick={remove_name}>
                 remove section
             </button>
+            </div>
         </Section>
     );
 }

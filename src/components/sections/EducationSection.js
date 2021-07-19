@@ -1,9 +1,14 @@
 import { useDispatch } from "react-redux";
 import Section from "../Section";
 import React, { useState } from "react";
+import { useContext } from "react";
+import { useEffect } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 function EducationSection(props) {
     const dispatch = useDispatch();
+    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_education = (e) => {
         dispatch({
@@ -32,16 +37,36 @@ function EducationSection(props) {
 
     };
 
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+        
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
 
     return (
         <Section id={props.id}>
             <div className="sectionselected">
-                <h4>Education</h4>
+                <h4>{localization.sections_education_header}</h4>
                 {inputList.map((x, i) => {
                     return (
                         <table className="section">
                             <tr id="li_1">
-                                <label className="field" htmlFor="coursetName">Education/course name </label>
+                                <label className="field" htmlFor="coursetName">{localization.sections_education_courseName}</label>
                                 <div>
                                     <input
                                         className="field"
@@ -53,7 +78,7 @@ function EducationSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_2">
-                                <label className="field" htmlFor="organisation">Organisation </label>
+                                <label className="field" htmlFor="organisation">{localization.sections_education_organisation}</label>
                                 <div>
                                     <input name="organisation"
                                         className="field"
@@ -64,7 +89,7 @@ function EducationSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_3">
-                                <label className="field" htmlFor="city">City </label>
+                                <label className="field" htmlFor="city">{localization.sections_education_city}</label>
                                 <div>
                                     <input
                                         className="field"
@@ -76,8 +101,7 @@ function EducationSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_4">
-                                <label className="" htmlFor="yearofstart">Year of Start -  </label>
-                                <label className="" htmlFor="yearoftheend">Year of End </label>
+                                <label className="field">{localization.sections_education_yearRange}</label>
                             </tr>
                             <tr>
                                 <div className="field">
@@ -98,7 +122,7 @@ function EducationSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_5">
-                                <label className="field" htmlFor="element_5">Description </label>
+                                <label className="field" htmlFor="element_5">{localization.sections_education_description}</label>
                                 <div>
                                     <textarea
                                         className="field"

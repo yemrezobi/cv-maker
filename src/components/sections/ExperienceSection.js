@@ -1,10 +1,15 @@
 import { useDispatch } from "react-redux";
 import Section from "../Section";
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 function ExperienceSection(props) {
 
     const dispatch = useDispatch();
+    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const handleRemove = (e) => {
         dispatch({
@@ -33,17 +38,36 @@ function ExperienceSection(props) {
 
     };
 
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+        
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
 
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
 
     return (
         <Section id={props.id}>
             <div className="sectionselected">
-                <h4>Experience</h4>
+                <h4>{localization.sections_experience_header}</h4>
                 {inputList.map((x, i) => {
                     return (
                         <table>
                             <tr id="li_1">
-                                <label className="field" htmlFor="company">Company </label>
+                                <label className="field" htmlFor="company">{localization.sections_experience_company}</label>
                                 <div>
                                     <input
                                         className="field"
@@ -55,7 +79,7 @@ function ExperienceSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_2">
-                                <label className="field" htmlFor="title">Function title </label>
+                                <label className="field" htmlFor="title">{localization.sections_experience_title}</label>
                                 <div>
                                     <input
                                         className="field"
@@ -67,9 +91,10 @@ function ExperienceSection(props) {
                                 </div>
                             </tr>
                             <tr id="li_4">
-                                <label htmlFor="yearofstart">Year Of Start - </label>
-                                <label htmlFor="yearoftheend">Year Of End </label>
-                                <div>
+                                <label className="field" htmlFor="yearofstart">{localization.sections_experience_yearRange}</label>
+                            </tr>
+                            <tr id="li_5">
+                                <div className="field">
                                     <input
                                         className="field"
                                         name="yearofstart"
@@ -86,8 +111,8 @@ function ExperienceSection(props) {
                                         className="Date" id="element_6" type="text" maxLength="4" />
                                 </div>
                             </tr>
-                            <tr id="li_5">
-                                <label className="field" htmlFor="description">Description </label>
+                            <tr id="li_6">
+                                <label className="field" htmlFor="description">{localization.sections_experience_description}</label>
                                 <div>
                                     <textarea
                                         className="field"

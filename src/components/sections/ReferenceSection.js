@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import Section from "../Section";
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 
 
@@ -11,6 +14,8 @@ import React, { useState } from "react";
 function ReferenceSection(props) {
 
     const dispatch = useDispatch();
+    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_reference = (e) => {
         dispatch({
@@ -38,15 +43,36 @@ function ReferenceSection(props) {
         setInputList([...inputList, { name: "", Lname: "", phone: "", email: "" }]);
     };
 
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+        
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
+
     return (
         <Section id={props.id}>
             <div className="sectionselected">
-                <h4>Refrence</h4>
+                <h4>{localization.sections_references_header}</h4>
                 {inputList.map((x, i) => {
                     return (
                         <table>
                             <tr>
-                                <label className="field" htmlFor="name">Name : </label><br />
+                                <label className="field" htmlFor="name">{localization.sections_references_firstName}: </label><br />
                                 <input
                                     className="field"
                                     name="name"
@@ -57,7 +83,7 @@ function ReferenceSection(props) {
                             </tr>
                             <br />
                             <tr>
-                                <label className="field" htmlFor="Lname">Last Name : </label><br />
+                                <label className="field" htmlFor="Lname">{localization.sections_references_lastName}: </label><br />
                                 <input
                                     className="field"
                                     name="Lname"
@@ -68,7 +94,7 @@ function ReferenceSection(props) {
                             </tr>
                             <br />
                             <tr>
-                                <label className="field" htmlFor="phone">Phone : </label><br />
+                                <label className="field" htmlFor="phone">{localization.sections_references_phone}: </label><br />
                                 <input
                                     className="field"
                                     name="phone"
@@ -79,7 +105,7 @@ function ReferenceSection(props) {
                             </tr>
                             <br />
                             <tr>
-                                <label className="field" htmlFor="email">Email : </label><br />
+                                <label className="field" htmlFor="email">{localization.sections_references_email}: </label><br />
                                 <input
                                     className="field"
                                     name="email"

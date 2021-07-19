@@ -1,12 +1,17 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 
 function Skill(props) {
 
 
     const dispatch = useDispatch();
+    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_skills = (e) => {
         dispatch({
@@ -41,10 +46,31 @@ function Skill(props) {
 
     };
 
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+        
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
+
     return (
         <Section id={props.id}>
             <div className="skillsgroup">
-                <h4>Skills</h4>
+                <h4>{localization.sections_skills_header}</h4>
                 <input type="text" className="inputTitle" placeholder="Name of the Skills Group" />
                 <br />
                 {inputList.map((x, i) => {

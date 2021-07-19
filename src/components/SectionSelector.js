@@ -162,8 +162,8 @@ function SectionSelector(props) {
                             </button>
                         </td>
                         <td>
-                            <button className="sectionBut" onClick={addTest}>
-                                Add Test Section
+                            <button className="sectionBut" onClick={addName}>
+                                {localization.sectionSelector_addName}
                             </button>
                         </td>
                         <td>
@@ -182,6 +182,21 @@ function SectionSelector(props) {
                             <button className="sectionBut" onClick={addBio}>
                                 {localization.sectionSelector_addBio}
                             </button>
+                        </td>
+                        <td>
+                            <button className="sectionBut" onClick={addContact}>
+                                {localization.sectionSelector_addContact}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button className="sectionBut" onClick={addPic}>
+                                {localization.sectionSelector_addPic}
+                            </button>
+                        </td>
+                        <td>
+
                         </td>
                         <td>
 

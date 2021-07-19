@@ -26,7 +26,10 @@ function LocalizationProvider(props) {
             sectionSelector_addSkills: "Add Skills Group",
             sectionSelector_addHobbies: "Add Hobbies",
             sectionSelector_addLanguages: "Add Languages",
-            sectionSelector_addBio: "Add Bio"
+            sectionSelector_addBio: "Add Bio",
+            sectionSelector_addPic: "Add Picture",
+            sectionSelector_addContact: "Add Contact",
+            sectionSelector_addName: "Add Name"
         },
         de: {
             styleEditor_backgroundColor: "Dokument Hintergrund Farbe",
@@ -46,7 +49,10 @@ function LocalizationProvider(props) {
             sectionSelector_addSkills: "Fähigkeiten Hinzufügen",
             sectionSelector_addHobbies: "Hobbys Hinzufügen",
             sectionSelector_addLanguages: "Sprachen Hinzufügen",
-            sectionSelector_addBio: "Bio Hinzufügen"
+            sectionSelector_addBio: "Bio Hinzufügen",
+            sectionSelector_addPic: "Bild Hinzufügen",
+            sectionSelector_addContact: "Kontakt Hinzufügen",
+            sectionSelector_addName: "Name Hinzufügen"
         },
         tr: {
             styleEditor_backgroundColor: "Belge Arka Plan Rengi",
@@ -66,7 +72,10 @@ function LocalizationProvider(props) {
             sectionSelector_addSkills: "Beceri Ekle",
             sectionSelector_addHobbies: "Hobi Ekle",
             sectionSelector_addLanguages: "Dil Ekle",
-            sectionSelector_addBio: "Biyografi Ekle"
+            sectionSelector_addBio: "Biyografi Ekle",
+            sectionSelector_addPic: "Resim Ekle",
+            sectionSelector_addContact: "İletişim Ekle",
+            sectionSelector_addName: "İsim Ekle"
         }
     });
 

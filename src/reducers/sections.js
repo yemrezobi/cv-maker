@@ -33,11 +33,9 @@ const sections = (state = initialState, action) => {
             return {
                 ...state,
                 mainPanel: [
-                    ...state.mainPanel,
                     ...action.mainSections
                 ],
                 sidePanel: [
-                    ...state.sidePanel,
                     ...action.sideSections
                 ]
             }

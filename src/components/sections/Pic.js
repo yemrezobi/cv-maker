@@ -60,9 +60,6 @@ function Pic(props) {
                     </div>
                 )}
             </ImageUploading>
-            <button className="remove" onClick={remove_pic}>
-                Remove section
-            </button>
         </Section>
     );
 }

@@ -114,6 +114,8 @@ body > div {
 
 .select-template {
     height: 50%;
+    white-space: nowrap;
+    overflow: auto;
 }
 
 .section {

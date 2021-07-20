@@ -179,7 +179,7 @@ const handleClick6 = (e) => {
   
 
     return (
-        <div className="select-section box">
+        <div className="select-template box" style={{ marginTop: "-3px" }}>
             
             <button onClick={handleClick6}>
                 <img className="templateIcon" src = {t1} alt="template1"></img>     

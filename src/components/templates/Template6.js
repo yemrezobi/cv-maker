@@ -1,24 +1,17 @@
-import SectionTest from "../sections/SectionTest"
-import BioSection from "../sections/BioSection"
-import Contact from "../sections/Contact"
 import EducationSection from "../sections/EducationSection"
-import ExperienceSection from "../sections/ExperienceSection"
-import HobbiesSection from "../sections/HobbiesSection"
 import LanguagesSection from "../sections/LanguagesSection"
 import Name from "../sections/Name"
 import Pic from "../sections/Pic"
-import ReferenceSection from "../sections/ReferenceSection"
 import Skill from "../sections/Skill"
-import SkillsGroupSection from "../sections/SkillsGroupSection"
 
 var Template6 = {
     mainSections: [
 
-        <Pic/>,
-        <Name/>,   
-        <EducationSection/>,
-        <LanguagesSection/>,     
-        <Skill/>,
+        <Pic key={50} id={50} data={{ type: "pic" }} />,
+        <Name key={51} id={51} data={{ type: "name" }} />,   
+        <EducationSection key={52} id={52} data={{ type: "education" }} />,
+        <LanguagesSection key={53} id={53} data={{ type: "languages" }} />,     
+        <Skill key={54} id={54} data={{ type: "skills" }} />,
       
         
     ],

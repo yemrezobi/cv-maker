@@ -1,6 +1,4 @@
-import SectionTest from "../sections/SectionTest"
 import BioSection from "../sections/BioSection"
-import Contact from "../sections/Contact"
 import EducationSection from "../sections/EducationSection"
 import ExperienceSection from "../sections/ExperienceSection"
 import HobbiesSection from "../sections/HobbiesSection"
@@ -9,20 +7,19 @@ import Name from "../sections/Name"
 import Pic from "../sections/Pic"
 import ReferenceSection from "../sections/ReferenceSection"
 import Skill from "../sections/Skill"
-import SkillsGroupSection from "../sections/SkillsGroupSection"
 
 var Template4 = {
     mainSections: [
 
-        <Pic/>,
-        <BioSection/>,  
-        <Name/>,   
-        <EducationSection/>,
-        <ExperienceSection/>,
-        <LanguagesSection/>,     
-        <HobbiesSection/>,
-        <ReferenceSection/>,
-        <Skill/>,
+        <Pic key={50} id={50} data={{ type: "pic" }} />,
+        <BioSection key={51} id={51} data={{ type: "bio" }} />,  
+        <Name key={52} id={52} data={{ type: "name" }} />,   
+        <EducationSection key={53} id={53} data={{ type: "education" }} />,
+        <ExperienceSection key={54} id={54} data={{ type: "experience" }} />,
+        <LanguagesSection key={55} id={55} data={{ type: "languages" }} />,     
+        <HobbiesSection key={56} id={56} data={{ type: "hobbies" }} />,
+        <ReferenceSection key={57} id={57} data={{ type: "references" }} />,
+        <Skill key={58} id={58} data={{ type: "skills" }} />,
       
         
     ],

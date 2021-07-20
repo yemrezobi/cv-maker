@@ -11,18 +11,22 @@ import ReferenceSection from "../sections/ReferenceSection"
 import Skill from "../sections/Skill"
 import SkillsGroupSection from "../sections/SkillsGroupSection"
 
-var Template2 = {
+var Template4 = {
     mainSections: [
 
         <Pic/>,
+        <BioSection/>,  
+        <Name/>,   
+        <EducationSection/>,
+        <ExperienceSection/>,
+        <LanguagesSection/>,     
+        <HobbiesSection/>,
         <ReferenceSection/>,
-        <BioSection/>,
-        <EducationSection/>,        
-        <Contact/>,
+        <Skill/>,
       
         
     ],
     sideSections: []
 }
 
-export default Template2
+export default Template4

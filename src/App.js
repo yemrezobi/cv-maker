@@ -20,6 +20,7 @@ function App() {
                         <CVEditor />
                         <div className="side-content">
                             <SectionSelector />
+                            
                             <TemplateSelector />
                         </div>
                     </div>

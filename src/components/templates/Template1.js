@@ -1,50 +1,29 @@
-function Template1(){
+import SectionTest from "../sections/SectionTest"
+import BioSection from "../sections/BioSection"
+import Contact from "../sections/Contact"
+import EducationSection from "../sections/EducationSection"
+import ExperienceSection from "../sections/ExperienceSection"
+import HobbiesSection from "../sections/HobbiesSection"
+import LanguagesSection from "../sections/LanguagesSection"
+import Name from "../sections/Name"
+import Pic from "../sections/Pic"
+import ReferenceSection from "../sections/ReferenceSection"
+import Skill from "../sections/Skill"
+import SkillsGroupSection from "../sections/SkillsGroupSection"
 
-  return(
-      <div >
+var Template1 = {
+    mainSections: [
         
-      `<h1>Resume</h1>
-      <h2>Emily</h2>
-      <hr />
+        <Pic/>,
+        <BioSection/>,
+        <EducationSection/>,
+        <LanguagesSection/>,
+        <HobbiesSection/>,
+        <Contact/>,
       
-      <p class="head">Interests</p>
-      <ul>
-        <li>Drawing</li>
-        <li>Photography</li>
-        <li>Design</li>
-        <li>Programming</li>
-        <li>Computer Science</li>
-        <input type="text"></input>
-        <input type="checkbox"></input>
-      </ul>
-      <p class="head">Skills</p>
-      <ul>
-        <li>Web Design with HTML & CSS</li>
-      </ul>
-      <p class="head">Education</p>
-      <ul>
-        <a href="http://www.wiltonhighschool.org/pages/Wilton_High_School">
-          <li>Wilton High School</li>
-        </a>
         
-        <li>Codeacademy</li>
-      </ul>
-      <p class="head">Experience</p>
-      <ul>
-        <li>Student Technology Intern for Wilton School District</li>
-        <li>Babysitter</li>
-      </ul>
-    
-      <ul>
-        <li>Recycling Club</li>
-        <li>Gardening Club</li>
-        <li>Book Club</li>
-      </ul>`
-   </div>
-  )
+    ],
+    sideSections: []
 }
 
 export default Template1
-
-
-

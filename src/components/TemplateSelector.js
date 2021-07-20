@@ -1,18 +1,18 @@
 import { useDispatch } from "react-redux";
 
-import Template1 from './Template1';
-import Template2 from './Template2';
-import Template3 from './Template3';
-import Template4 from './Template4';
-import Template5 from './Template5';
-import Template6 from './Template6';
+import Template1 from './Templates/Template1';
+import Template2 from './Templates/Template2';
+import Template3 from './Templates/Template3';
+import Template4 from './Templates/Template4';
+import Template5 from './Templates/Template5';
+import Template6 from './Templates/Template6';
 
-import t1 from './t1.PNG'
-import t2 from './t2.PNG'
-import t3 from './t3.PNG'
-import t4 from './t4.PNG'
-import t5 from './t5.PNG'
-import t6 from './t6.PNG'
+import t1 from './Icons/t1.PNG'
+import t2 from './Icons/t2.PNG'
+import t3 from './Icons/t3.PNG'
+import t4 from './Icons/t4.PNG'
+import t5 from './Icons/t5.PNG'
+import t6 from './Icons/t6.PNG'
 
 
 

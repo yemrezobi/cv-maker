@@ -15,7 +15,7 @@ import Contact from "./sections/Contact";
 import Pic from "./sections/Pic";
 
 function SectionSelector(props) {
-    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localizationContext,] = useContext(LocalizationContext);
     const [count, setCount] = useState(0);
     const [localization, setLocalization] = useState(localizationContext.en);
     const dispatch = useDispatch();
@@ -64,7 +64,7 @@ function SectionSelector(props) {
         });
         setCount(count + 1);
     }
-    
+
     const addLanguages = (e) => {
         dispatch({
             type: "ADD_SECTION",
@@ -115,7 +115,7 @@ function SectionSelector(props) {
             case "en":
                 setLocalization(localizationContext.en);
                 break;
-        
+
             case "de":
                 setLocalization(localizationContext.de);
                 break;

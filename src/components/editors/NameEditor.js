@@ -5,7 +5,7 @@ import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 function NameEditor(props) {
     const [name, setName] = useState(props.data.name !== undefined ? props.data.name : "");
-    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en)
 
     const handleName = (event) => {
@@ -25,7 +25,7 @@ function NameEditor(props) {
             case "en":
                 setLocalization(localizationContext.en);
                 break;
-        
+
             case "de":
                 setLocalization(localizationContext.de);
                 break;
@@ -41,7 +41,7 @@ function NameEditor(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localizationContext.selectedLanguage]);
 
-    return(
+    return (
         <div>
             <div className="edit-style-item">
                 <label htmlFor="name">{localization.sections_name_header}: </label>

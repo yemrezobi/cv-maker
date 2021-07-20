@@ -11,7 +11,7 @@ function HobbiesSection(props) {
 
 
     const dispatch = useDispatch();
-    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_hobbies = (e) => {
@@ -45,7 +45,7 @@ function HobbiesSection(props) {
             case "en":
                 setLocalization(localizationContext.en);
                 break;
-        
+
             case "de":
                 setLocalization(localizationContext.de);
                 break;
@@ -71,7 +71,7 @@ function HobbiesSection(props) {
                             <tr>
                                 <td>
                                     <input
-                                        className="field"
+                                        className="input"
                                         name="hobby"
                                         placeholder="Hobby Name"
                                         value={x.hobby}
@@ -81,11 +81,11 @@ function HobbiesSection(props) {
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="field">
+                                    <div className="input">
                                         {inputList.length !== 1 && <button
                                             className="remove"
-                                            onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add</button>}
+                                            onClick={() => handleRemoveClick(i)}>-</button>}
+                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>+</button>}
                                     </div>
                                 </td>
                             </tr>

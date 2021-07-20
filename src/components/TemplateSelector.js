@@ -13,9 +13,9 @@ function TemplateSelector(props) {
     const replaceTemplate = (e) => {
         dispatch({
             type: "REMOVE_SECTION",
-            section:  <Template1/> ,
-            panel : "main"
-    
+            section: <Template1 />,
+            panel: "main"
+
         });
     };
 
@@ -23,8 +23,8 @@ function TemplateSelector(props) {
         replaceTemplate();
         dispatch({
             type: "ADD_SECTION",
-            section:  <Template1/> ,
-            panel : "main"
+            section: <Template1 />,
+            panel: "main"
 
         });
 
@@ -43,8 +43,8 @@ function TemplateSelector(props) {
         replaceTemplate();
         dispatch({
             type: "ADD_SECTION",
-            section:<Template3/> ,
-            panel : "main"
+            section: <Template3 />,
+            panel: "main"
         });
     }
 
@@ -54,11 +54,11 @@ function TemplateSelector(props) {
                 <img className="templateIcon" src={tm1} alt="template1"></img>
             </button>
             <button onClick={handleClick2}>
-                <img className="templateIcon" src={tm1} alt="template1"></img>     
-           </button>
-           <button onClick={handleClick3}>
-                <img className="templateIcon" src={tm1} alt="template1"></img>     
-           </button>
+                <img className="templateIcon" src={tm1} alt="template1"></img>
+            </button>
+            <button onClick={handleClick3}>
+                <img className="templateIcon" src={tm1} alt="template1"></img>
+            </button>
 
 
         </div>

@@ -10,7 +10,7 @@ function EducationEditor(props) {
     const [yearOfStart, setYearOfStart] = useState(props.data.yearOfStart !== undefined ? props.data.yearOfStart : "");
     const [yearOfEnd, setYearOfEnd] = useState(props.data.yearOfEnd !== undefined ? props.data.yearOfEnd : "");
     const [description, setDescription] = useState(props.data.description !== undefined ? props.data.description : "");
-    const [localizationContext, ] = useContext(LocalizationContext);
+    const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en)
 
     const handleCourseName = (event) => {
@@ -55,7 +55,7 @@ function EducationEditor(props) {
             case "en":
                 setLocalization(localizationContext.en);
                 break;
-        
+
             case "de":
                 setLocalization(localizationContext.de);
                 break;
@@ -71,7 +71,7 @@ function EducationEditor(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localizationContext.selectedLanguage]);
 
-    return(
+    return (
         <div>
             <div className="edit-style-item">
                 <label htmlFor="courseName">{localization.sections_education_courseName}: </label>

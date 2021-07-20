@@ -151,10 +151,10 @@ function LocalizationProvider(props) {
         }
     });
 
-    return(
-    <LocalizationContext.Provider value={[localization, setLocalization]}>
-        {props.children}
-    </LocalizationContext.Provider>
+    return (
+        <LocalizationContext.Provider value={[localization, setLocalization]}>
+            {props.children}
+        </LocalizationContext.Provider>
     );
 }
 

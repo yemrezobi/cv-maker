@@ -208,3 +208,14 @@ h4{
     height: 160px;
     resize:none;      
 }
+
+.input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+  }
+  
+  .no-outline:focus {
+    outline: none;
+  }

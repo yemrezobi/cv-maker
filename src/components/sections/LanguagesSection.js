@@ -4,13 +4,14 @@ import Section from '../Section';
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
-
+import { SectionContext } from "../../contexts/SectionContext";
 
 function LanguagesSection(props) {
 
     const dispatch = useDispatch();
     const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en);
+    const [sectionStyle, setSectionStyle] = useContext(SectionContext);
 
     const remove_languages = (e) => {
         dispatch({
@@ -81,6 +82,7 @@ function LanguagesSection(props) {
                                         placeholder="Language Name"
                                         value={x.firstName}
                                         onChange={e => handleInputChange(e, i)}
+                                        style={{backgroundColor: sectionStyle.backgroundColor}}
                                     />
                                 </td>
                             </tr>
@@ -93,9 +95,10 @@ function LanguagesSection(props) {
 
                         <div>
                             {inputList.length !== 1 && <button
+                                style={{backgroundColor: sectionStyle.backgroundColor}}
                                 className="mr10"
                                 onClick={() => handleRemoveClick(i)}>-</button>}
-                            {inputList.length - 1 === i && <button onClick={handleAddClick}>+</button>}
+                            {inputList.length - 1 === i && <button style={{backgroundColor: sectionStyle.backgroundColor}} onClick={handleAddClick}>+</button>}
                         </div>
 
                     </div>
@@ -103,9 +106,6 @@ function LanguagesSection(props) {
                 );
             })}
             <br />
-            <button onClick={remove_languages}>
-                Remove languages group
-            </button>
 
         </Section>
     );

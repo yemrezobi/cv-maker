@@ -4,6 +4,7 @@ import Section from '../Section';
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
+import { SectionContext } from "../../contexts/SectionContext";
 
 
 function Skill(props) {
@@ -12,6 +13,8 @@ function Skill(props) {
     const dispatch = useDispatch();
     const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en);
+    
+    const [sectionStyle, setSectionStyle] = useContext(SectionContext);
 
     const remove_skills = (e) => {
         dispatch({
@@ -71,7 +74,7 @@ function Skill(props) {
         <Section id={props.id} type="skill">
             <div className="skillsgroup">
                 <h4>{localization.sections_skills_header}</h4>
-                <input type="text" className="input" placeholder="Name of the Skills Group" />
+                <input type="text" className="input" placeholder="Name of the Skills Group" style={{backgroundColor: sectionStyle.backgroundColor}} />
                 {inputList.map((x, i) => {
                     return (
                         <table>
@@ -83,20 +86,21 @@ function Skill(props) {
                                         placeholder="Skill Name"
                                         value={x.firstName}
                                         onChange={e => handleInputChange(e, i)}
+                                        style={{backgroundColor: sectionStyle.backgroundColor}}
                                     />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input className="input" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
+                                    <input className="input" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} style={{backgroundColor: sectionStyle.backgroundColor}} />
                                 </td>
                             </tr>
 
                             <div  >
                                 {inputList.length !== 1 && <button
                                     className="remove"
-                                    onClick={() => handleRemoveClick(i)}>-</button>}
-                                {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>+</button>}
+                                    onClick={() => handleRemoveClick(i)} style={{backgroundColor: sectionStyle.backgroundColor}}>-</button>}
+                                {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick} style={{backgroundColor: sectionStyle.backgroundColor}}>+</button>}
                             </div>
                         </table>
 

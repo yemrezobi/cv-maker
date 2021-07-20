@@ -4,6 +4,7 @@ import Section from '../Section';
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
+import { SectionContext } from "../../contexts/SectionContext";
 
 
 
@@ -13,6 +14,7 @@ function HobbiesSection(props) {
     const dispatch = useDispatch();
     const [localizationContext,] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en);
+    const [sectionStyle, setSectionStyle] = useContext(SectionContext);
 
     const remove_hobbies = (e) => {
         dispatch({
@@ -76,16 +78,17 @@ function HobbiesSection(props) {
                                         placeholder="Hobby Name"
                                         value={x.hobby}
                                         onChange={e => handleInputChange(e, i)}
+                                        style={{backgroundColor: sectionStyle.backgroundColor}}
                                     />
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div className="input">
+                            <tr >
+                                <td >
+                                    <div className="input" style={{backgroundColor: sectionStyle.backgroundColor}}>
                                         {inputList.length !== 1 && <button
                                             className="remove"
-                                            onClick={() => handleRemoveClick(i)}>-</button>}
-                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>+</button>}
+                                            onClick={() => handleRemoveClick(i)} style={{backgroundColor: sectionStyle.backgroundColor}}>-</button>}
+                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick} style={{backgroundColor: sectionStyle.backgroundColor}}>+</button>}
                                     </div>
                                 </td>
                             </tr>
@@ -93,10 +96,6 @@ function HobbiesSection(props) {
                     </div>
                 );
             })}
-            <br />
-            <button className="remove" onClick={remove_hobbies}>
-                Remove group
-            </button>
 
         </Section>
     );

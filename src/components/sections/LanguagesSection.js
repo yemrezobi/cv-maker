@@ -1,11 +1,16 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 
 function LanguagesSection(props) {
 
     const dispatch = useDispatch();
+    const [localizationContext,] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_languages = (e) => {
         dispatch({
@@ -39,10 +44,31 @@ function LanguagesSection(props) {
         setInputList([...inputList, { firstName: "", rating: "" }]);
 
     };
-    
+
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
+
     return (
         <Section id={props.id}>
-            <h4 >Languages</h4>
+            <h4 >{localization.sections_languages_header}</h4>
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -50,7 +76,7 @@ function LanguagesSection(props) {
                             <tr>
                                 <td>
                                     <input
-                                        className="field"
+                                        className="input"
                                         name="firstName"
                                         placeholder="Language Name"
                                         value={x.firstName}
@@ -65,11 +91,11 @@ function LanguagesSection(props) {
                             </tr>
                         </table>
 
-                        <div className="field">
+                        <div>
                             {inputList.length !== 1 && <button
                                 className="mr10"
-                                onClick={() => handleRemoveClick(i)}>Remove</button>}
-                            {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                                onClick={() => handleRemoveClick(i)}>-</button>}
+                            {inputList.length - 1 === i && <button onClick={handleAddClick}>+</button>}
                         </div>
 
                     </div>

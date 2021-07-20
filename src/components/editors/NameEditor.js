@@ -1,21 +1,31 @@
-import Section from '../Section';
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
 
+function NameEditor(props) {
+    const [name, setName] = useState(props.data.name !== undefined ? props.data.name : "");
+    const [localizationContext,] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en)
 
-function Contact(props) {
+    const handleName = (event) => {
+        setName(event.target.value);
+    }
 
-    const [localizationContext, ] = useContext(LocalizationContext);
-    const [localization, setLocalization] = useState(localizationContext.en);
+    useEffect(() => {
+        props.onChange({
+            ...props.data,
+            name: name
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [name])
 
     useEffect(() => {
         switch (localizationContext.selectedLanguage) {
             case "en":
                 setLocalization(localizationContext.en);
                 break;
-        
+
             case "de":
                 setLocalization(localizationContext.de);
                 break;
@@ -32,17 +42,13 @@ function Contact(props) {
     }, [localizationContext.selectedLanguage]);
 
     return (
-        <Section id={props.id}>
-            <h4>{localization.sections_contact_header}</h4>
+        <div>
             <div className="edit-style-item">
-                <label className="field" htmlFor="phone">{localization.sections_contact_phone}: </label>
-                <span className="field" name="phone">{props.data.phone}</span>
+                <label htmlFor="name">{localization.sections_name_header}: </label>
+                <input type="text" name="name" value={name} onChange={handleName}></input>
             </div>
-            <div className="edit-style-item">
-                <label className="field" htmlFor="email">{localization.sections_contact_email}: </label>
-                <span className="field" name="email">{props.data.email}</span>
-            </div>
-        </Section>
+        </div>
     );
 }
-export default Contact;
+
+export default NameEditor;

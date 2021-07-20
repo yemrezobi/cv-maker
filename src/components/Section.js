@@ -15,6 +15,7 @@ function Section(props) {
     const sidePanel = useSelector(state => state.sections.sidePanel);
     const dispatch = useDispatch();
     const [style, ] = useContext(SectionContext);    //Do not remove destructure
+
     const dragStart = (e) => {
         setDragged(true);
     }
@@ -100,6 +101,13 @@ function Section(props) {
         setDragged(false);
     }
 
+    const handleClick = (event) => {
+        dispatch({
+            type: "SET_SELECTED",
+            id: props.id
+        });
+    }
+
     useEffect(() => {
         dispatch({
             type: "EDIT_BOUNDS",
@@ -110,7 +118,7 @@ function Section(props) {
     }, [JSON.stringify(mainPanel)]);
 
     return (
-        <div className={`section ${dragged ? "dragged" : ""}`} style={style} ref={ref} draggable="true" onDragStart={dragStart} onDrag={drag} onDragEnd={dragEnd}>
+        <div className={`section ${dragged ? "dragged" : ""}`} style={style} ref={ref} draggable="true" onDragStart={dragStart} onDrag={drag} onDragEnd={dragEnd} onClick={handleClick}>
             {props.children}
         </div>
     );

@@ -1,6 +1,9 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 
 
@@ -8,6 +11,8 @@ function HobbiesSection(props) {
 
 
     const dispatch = useDispatch();
+    const [localizationContext,] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_hobbies = (e) => {
         dispatch({
@@ -34,9 +39,31 @@ function HobbiesSection(props) {
         setInputList([...inputList, { hobby: "" }]);
 
     };
+
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
+
     return (
         <Section id={props.id}>
-            <h4>Hobbies</h4>
+            <h4>{localization.sections_hobbies_header}</h4>
             {inputList.map((x, i) => {
                 return (
                     <div className="skill">
@@ -44,7 +71,7 @@ function HobbiesSection(props) {
                             <tr>
                                 <td>
                                     <input
-                                        className="field"
+                                        className="input"
                                         name="hobby"
                                         placeholder="Hobby Name"
                                         value={x.hobby}
@@ -54,11 +81,11 @@ function HobbiesSection(props) {
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="field">
+                                    <div className="input">
                                         {inputList.length !== 1 && <button
                                             className="remove"
-                                            onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add</button>}
+                                            onClick={() => handleRemoveClick(i)}>-</button>}
+                                        {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>+</button>}
                                     </div>
                                 </td>
                             </tr>

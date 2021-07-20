@@ -1,12 +1,17 @@
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
+import { useEffect } from "react";
+import { useContext } from "react";
+import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 
 function Skill(props) {
 
 
     const dispatch = useDispatch();
+    const [localizationContext,] = useContext(LocalizationContext);
+    const [localization, setLocalization] = useState(localizationContext.en);
 
     const remove_skills = (e) => {
         dispatch({
@@ -41,49 +46,63 @@ function Skill(props) {
 
     };
 
+    useEffect(() => {
+        switch (localizationContext.selectedLanguage) {
+            case "en":
+                setLocalization(localizationContext.en);
+                break;
+
+            case "de":
+                setLocalization(localizationContext.de);
+                break;
+
+            case "tr":
+                setLocalization(localizationContext.tr);
+                break;
+
+            default:
+                setLocalization(localizationContext.en);
+                break;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [localizationContext.selectedLanguage]);
+
     return (
-        <Section id={props.id}>
+        <Section id={props.id} type="skill">
             <div className="skillsgroup">
-                <h4>Skills</h4>
-                <input type="text" className="inputTitle" placeholder="Name of the Skills Group" />
-                <br />
+                <h4>{localization.sections_skills_header}</h4>
+                <input type="text" className="input" placeholder="Name of the Skills Group" />
                 {inputList.map((x, i) => {
                     return (
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input
-                                            className="field"
-                                            name="firstName"
-                                            placeholder="Skill Name"
-                                            value={x.firstName}
-                                            onChange={e => handleInputChange(e, i)}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input className="field" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
-                                    </td>
-                                </tr>
-                            </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input
+                                        className="input"
+                                        name="firstName"
+                                        placeholder="Skill Name"
+                                        value={x.firstName}
+                                        onChange={e => handleInputChange(e, i)}
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input className="input" type="range" min="0" max="100" defaultValue="50" step="5" onChange={e => handleInputChange(e, i)} />
+                                </td>
+                            </tr>
 
-                            <div className="field">
+                            <div  >
                                 {inputList.length !== 1 && <button
                                     className="remove"
-                                    onClick={() => handleRemoveClick(i)}>Remove</button>}
-                                {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>Add</button>}
+                                    onClick={() => handleRemoveClick(i)}>-</button>}
+                                {inputList.length - 1 === i && <button className="remove" onClick={handleAddClick}>+</button>}
                             </div>
-
-                        </div>
+                        </table>
 
                     );
                 })}
                 <br />
-                <button className="remove" onClick={remove_skills}>
-                    Remove group
-                </button>
             </div>
         </Section>
     );

@@ -3,22 +3,9 @@ import { useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { useContext } from "react"
 import { CvContext } from "../contexts/CvContext"
-
 import { jsPDF } from "jspdf";
-
 import html2canvas from 'html2canvas';
-/*
-function printMe(e) {
-    var ifr = document.createElement('iframe');
-    ifr.style = 'height: 0px; width: 0px; position: absolute'
-    document.body.appendChild(ifr);
 
-    $(e).clone().appendTo(ifr.contentDocument.body);
-    ifr.contentWindow.print();
-
-    ifr.parentElement.removeChild(ifr);
-}
-*/
 function CVEditor(props) {
 
     const [style, ] = useContext(CvContext);
@@ -32,25 +19,7 @@ function CVEditor(props) {
         e.preventDefault();
     }
 
-    useEffect(() => {
-        if (sidePanel.length === 0) {
-            dispatch({
-                type: "CHANGE_SIDE",
-                side: null
-            });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [JSON.stringify(sidePanel)])
-
     const printDocument = (e) => {
-
-        /*      var buttons = document.getElementsByClassName("remove");
-      
-              for (var i = 0; i <= buttons.length; i++) {
-                  buttons[i].current.style.display = 'none';
-              }
-      
-      */
         const input = document.getElementById('s');
         html2canvas(input)
             .then((canvas) => {
@@ -83,13 +52,18 @@ function CVEditor(props) {
                     }
                 }
                 pdf.save('content.pdf');
-            })
-            ;
-
-        //printMe(document.getElementById('s'));
+            });
     }
 
-
+    useEffect(() => {
+        if (sidePanel.length === 0) {
+            dispatch({
+                type: "CHANGE_SIDE",
+                side: null
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [JSON.stringify(sidePanel)])
 
     return (
         <div id="s" className="cv-editor box" ref={ref} onDragOver={dragOver}>

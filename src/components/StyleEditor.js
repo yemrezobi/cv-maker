@@ -16,7 +16,7 @@ function StyleEditor(){
     const [sectionMarginHorizontal, setSectionMarginHorizontal] = useState(sectionStyle.marginLeft.slice(0, -2));
     const [cvBackgroundColor, setCvBackgroundColor] = useState(cvStyle.backgroundColor);
     const [sectionBackgroundTransparent, setSectionBackgroundTransparent] = useState(false);
-    const [colorBase, setColorBase] = useState();
+    const [colorBase, setColorBase] = useState("#FFFFFF");
     const [colorLight, setColorLight] = useState();
     const [, setColorDark] = useState();
     const [selectedLanguage, setSelectedLanguage] = useState();
@@ -92,8 +92,6 @@ function StyleEditor(){
     }
 
     const handleSectionBackgroundTransparent = (event) => {
-        console.log(colorBase);
-        console.log(colorLight);
         setSectionBackgroundTransparent(event.target.checked);
         if(event.target.checked){
             setSectionStyle({
@@ -178,7 +176,7 @@ function StyleEditor(){
     }, []);
 
     return(
-        <div className="edit-style box">
+        <div className="edit-style box" style={{ marginTop: "-3px" }}>
             <div className="edit-style-item">
                 <label htmlFor="selectedLanguage">{localization.styleEditor_language}: </label>
                 <select name="selectedLanguage" value={selectedLanguage} onChange={handleSelectedLanguage}>
@@ -238,9 +236,6 @@ function StyleEditor(){
             </div>
         </div>
     );
-    /* return(<div className="edit-style box">
-        <button onClick={(event) => {console.log(localization.styleEditor_language)}}>Test</button>
-    </div>); */
 }
 
 export default StyleEditor

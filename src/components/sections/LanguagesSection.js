@@ -91,7 +91,7 @@ function LanguagesSection(props) {
                             </tr>
                         </table>
 
-                        <div className="input">
+                        <div>
                             {inputList.length !== 1 && <button
                                 className="mr10"
                                 onClick={() => handleRemoveClick(i)}>-</button>}

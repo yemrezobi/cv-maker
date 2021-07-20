@@ -1,10 +1,10 @@
-import SectionTest from "../sections/SectionTest"
+import Name from "../sections/Name"
 
 var Template2test = {
     mainSections: [
-        <SectionTest id="1" />,
-        <SectionTest id="2" />,
-        <SectionTest id="3" />
+        <Name id="1" data={{ type: "name", name: "John" }}/>,
+        <Name id="2" data={{ type: "name", name: "Mary" }}/>,
+        <Name id="3" data={{ type: "name", name: "Hans" }}/>
     ],
     sideSections: []
 }

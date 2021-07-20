@@ -1,7 +1,12 @@
 const initialState = {
     sidePanel: [],
     mainPanel: [],
-    side: null
+    side: null,
+    selectedSection: {
+        props: {
+            id: -1
+        }
+    }
 }
 
 const sections = (state = initialState, action) => {
@@ -44,11 +49,21 @@ const sections = (state = initialState, action) => {
                 sidePanel: state.sidePanel.filter(section => section.props.id !== action.id)
             }
 
+        case "REMOVE_SELECTED_SECTION":
+            return {
+                ...state,
+                mainPanel: state.mainPanel.filter(section => section.props.id !== state.selectedSection.props.id),
+                sidePanel: state.sidePanel.filter(section => section.props.id !== state.selectedSection.props.id),
+                selectedSection: { props: {
+                    id: -1
+                } }
+            }
+
         case "EDIT_BOUNDS":
             return {
                 ...state,
                 mainPanel: state.mainPanel.map(el => { return (el.props.id === action.id ? { ...el, boundingBox: action.boundingBox } : el) }),
-                sidePanel: state.sidePanel.map(el => { return (el.props.id === action.id ? { ...el, boundingBox: action.boundingBox } : el) }),
+                sidePanel: state.sidePanel.map(el => { return (el.props.id === action.id ? { ...el, boundingBox: action.boundingBox } : el) })
             };
 
         case "MOVE_SECTION":
@@ -113,6 +128,24 @@ const sections = (state = initialState, action) => {
             return {
                 ...state,
                 side: action.side
+            }
+
+        case "EDIT_SELECTED":
+            return {
+                ...state,
+                mainPanel: state.mainPanel.map(el => { return (el.props.id === state.selectedSection.props.id ? { ...el, props: {...el.props, data: {...action.data}} } : el) }),
+                sidePanel: state.sidePanel.map(el => { return (el.props.id === state.selectedSection.props.id ? { ...el, props: {...el.props, data: {...action.data}} } : el) }),
+                selectedSection: { ...state.selectedSection, props: {...state.selectedSection.props, data: {...action.data}}}
+            };
+
+        case "SET_SELECTED":
+            let selected = state.mainPanel.find(section => section.props.id === action.id);
+            if(selected === undefined) {
+                selected = state.sidePanel.find(section => section.props.id === action.id);
+            }
+            return {
+                ...state,
+                selectedSection: selected
             }
 
         default:

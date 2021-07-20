@@ -1,13 +1,24 @@
-import Section from "../Section";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
 
-function BioSection(props) {
-
+function BioEditor(props) {
+    const [bio, setBio] = useState(props.data.bio !== undefined ? props.data.bio : "");
     const [localizationContext, ] = useContext(LocalizationContext);
-    const [localization, setLocalization] = useState(localizationContext.en);
+    const [localization, setLocalization] = useState(localizationContext.en)
+
+    const handleBio = (event) => {
+        setBio(event.target.value);
+    }
+
+    useEffect(() => {
+        props.onChange({
+            ...props.data,
+            bio: bio
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [bio])
 
     useEffect(() => {
         switch (localizationContext.selectedLanguage) {
@@ -30,12 +41,15 @@ function BioSection(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localizationContext.selectedLanguage]);
 
-    return (
-        <Section id={props.id} type="bio">
-            <h4 className="description" htmlFor="element_5">{localization.sections_bio_header}</h4>
-            <span className="field" name="bio" style={{ whiteSpace: "pre-wrap" }}>{props.data.bio}</span>
-        </Section>
-    )
+    return(
+        <div>
+            <div className="edit-style-item">
+                <label htmlFor="bio" style={{ verticalAlign: "top" }}>{localization.sections_name_header}: </label>
+                <textarea name="bio" value={bio} onChange={handleBio}></textarea>
+            </div>
+        </div>
+
+    );
 }
 
-export default BioSection;
+export default BioEditor;

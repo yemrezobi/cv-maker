@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import Section from '../Section';
 import { useEffect } from "react";
@@ -8,17 +7,8 @@ import { LocalizationContext } from "../../contexts/LocalizationContext";
 
 function Name(props) {
 
-
-    const dispatch = useDispatch();
     const [localizationContext, ] = useContext(LocalizationContext);
     const [localization, setLocalization] = useState(localizationContext.en);
-
-    const remove_name = (e) => {
-        dispatch({
-            type: "REMOVE_SECTION",
-            id: props.id
-        });
-    }
 
     useEffect(() => {
         switch (localizationContext.selectedLanguage) {
@@ -44,11 +34,8 @@ function Name(props) {
     return (
         <Section id={props.id}>
             <h4>{localization.sections_name_header}</h4>
-            <input id="nameField" type="text" min="0" max="100" step="5" />
-            <br />
-            <button className="remove" onClick={remove_name}>
-                remove section
-            </button>
+            <span className="field" name="name">{props.data.name}</span>
+            
         </Section>
     );
 }

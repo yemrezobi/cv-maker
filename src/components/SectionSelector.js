@@ -8,7 +8,6 @@ import ReferenceSection from "./sections/ReferenceSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import Skill from "./sections/Skill";
 import HobbiesSection from "./sections/HobbiesSection";
-import SectionTest from "./sections/SectionTest";
 import LanguagesSection from "./sections/LanguagesSection";
 import BioSection from "./sections/BioSection";
 import Name from "./sections/Name";
@@ -24,40 +23,34 @@ function SectionSelector(props) {
     const addEducation = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <EducationSection key={count} id={count} />,
+            section: <EducationSection key={count} id={count} data={{ type: "education" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
 
-    const addTest = (e) => {
-        dispatch({
-            type: "ADD_SECTION",
-            section: <SectionTest key={count} id={count} />,
-            panel: "main"
-        });
-        setCount(count + 1);
-    }
     const addReference = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <ReferenceSection key={count} id={count} />,
+            section: <ReferenceSection key={count} id={count} data={{ type: "reference" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+
     const addExperience = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <ExperienceSection key={count} id={count} />,
+            section: <ExperienceSection key={count} id={count} data={{ type: "experience" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+
     const addSkillsGroup = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Skill key={count} id={count} />,
+            section: <Skill key={count} id={count} data={{ type: "skills" }} />,
             panel: "main"
         });
         setCount(count + 1);
@@ -66,23 +59,25 @@ function SectionSelector(props) {
     const addHobbies = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <HobbiesSection key={count} id={count} />,
+            section: <HobbiesSection key={count} id={count} data={{ type: "hobbies" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+    
     const addLanguages = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <LanguagesSection key={count} id={count} />,
+            section: <LanguagesSection key={count} id={count} data={{ type: "languages" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+
     const addBio = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <BioSection key={count} id={count} />,
+            section: <BioSection key={count} id={count} data={{ type: "bio" }} />,
             panel: "main"
         });
         setCount(count + 1);
@@ -91,15 +86,16 @@ function SectionSelector(props) {
     const addName = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Name key={count} id={count} />,
+            section: <Name key={count} id={count} data={{ type: "name" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+
     const addContact = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Contact key={count} id={count} />,
+            section: <Contact key={count} id={count} data={{ type: "contact" }} />,
             panel: "main"
         });
         setCount(count + 1);
@@ -108,11 +104,12 @@ function SectionSelector(props) {
     const addPic = (e) => {
         dispatch({
             type: "ADD_SECTION",
-            section: <Pic key={count} id={count} />,
+            section: <Pic key={count} id={count} data={{ type: "pic" }} />,
             panel: "main"
         });
         setCount(count + 1);
     }
+
     useEffect(() => {
         switch (localizationContext.selectedLanguage) {
             case "en":

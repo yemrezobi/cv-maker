@@ -1,13 +1,24 @@
-import Section from "../Section";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { LocalizationContext } from "../../contexts/LocalizationContext";
 
-function BioSection(props) {
-
+function NameEditor(props) {
+    const [name, setName] = useState(props.data.name !== undefined ? props.data.name : "");
     const [localizationContext, ] = useContext(LocalizationContext);
-    const [localization, setLocalization] = useState(localizationContext.en);
+    const [localization, setLocalization] = useState(localizationContext.en)
+
+    const handleName = (event) => {
+        setName(event.target.value);
+    }
+
+    useEffect(() => {
+        props.onChange({
+            ...props.data,
+            name: name
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [name])
 
     useEffect(() => {
         switch (localizationContext.selectedLanguage) {
@@ -30,12 +41,14 @@ function BioSection(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localizationContext.selectedLanguage]);
 
-    return (
-        <Section id={props.id} type="bio">
-            <h4 className="description" htmlFor="element_5">{localization.sections_bio_header}</h4>
-            <span className="field" name="bio" style={{ whiteSpace: "pre-wrap" }}>{props.data.bio}</span>
-        </Section>
-    )
+    return(
+        <div>
+            <div className="edit-style-item">
+                <label htmlFor="name">{localization.sections_name_header}: </label>
+                <input type="text" name="name" value={name} onChange={handleName}></input>
+            </div>
+        </div>
+    );
 }
 
-export default BioSection;
+export default NameEditor;

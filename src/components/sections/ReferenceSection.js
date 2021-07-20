@@ -65,7 +65,7 @@ function ReferenceSection(props) {
     }, [localizationContext.selectedLanguage]);
 
     return (
-        <Section id={props.id}>
+        <Section id={props.id} type="reference">
             <div className="sectionselected">
                 <h4>{localization.sections_references_header}</h4>
                 {inputList.map((x, i) => {

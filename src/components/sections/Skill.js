@@ -68,7 +68,7 @@ function Skill(props) {
     }, [localizationContext.selectedLanguage]);
 
     return (
-        <Section id={props.id}>
+        <Section id={props.id} type="skill">
             <div className="skillsgroup">
                 <h4>{localization.sections_skills_header}</h4>
                 <input type="text" className="inputTitle" placeholder="Name of the Skills Group" />
